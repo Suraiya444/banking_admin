@@ -7,13 +7,13 @@ function Dashboard() {
          <div class="nav-md">
     <div class="container body">
       <div class="main_container">
-        <div class="col-md-3 left_col">
-          <div class="left_col scroll-view">
-            <div class="navbar nav_title" style={{border: '0'}}>
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>
-            </div>
+          <div class="col-md-3 left_col">
+              <div class="left_col scroll-view">
+                  <div class="navbar nav_title" style={{border: '0'}}>
+                    <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>
+                  </div>
 
-            <div class="clearfix"></div>
+                <div class="clearfix"></div>
 
             
             <div class="profile clearfix">
@@ -249,40 +249,40 @@ function Dashboard() {
           </div>
         </div>
          
-        <div class="right_col" role="main">
-          <div class="">
-            <div class="row top_tiles" style={{margin:'10px 0'}}>
-              <div class="col-md-3 col-sm-3 col-xs-6 tile">
-                <span>Total Sessions</span>
-                <h2>231,809</h2>
-                <span class="sparkline_one" style={{height:'160px'}}>
-                <canvas width="200" height="60" style={{display: 'inline-block',
-                 verticalAlign: 'top',width: '94px',height: '30px'}}></canvas>
-                  </span>
-              </div>
-              <div class="col-md-3 col-sm-3 col-xs-6 tile">
-                <span>Total Revenue</span>
-                <h2>$ 231,809</h2>
-                <span class="sparkline_one" style={{height:'160px'}}>
-                      <canvas width="200" height="60" style={{display:'inline-block', verticalAlign:'top', width:'94px', height:'30px'}}></canvas>
-                  </span>
-              </div>
-              <div class="col-md-3 col-sm-3 col-xs-6 tile">
-                <span>Total Sessions</span>
-                <h2>231,809</h2>
-                <span class="sparkline_two" style={{height:'160px'}}>
-                <canvas width="200" height="60"style={{display:'inline-block', verticalAalign:'top', width:'94px', height:'30px'}}></canvas>
-                  </span> 
-              </div>
-              <div class="col-md-3 col-sm-3 col-xs-6 tile">
-                <span>Total Sessions</span>
-                <h2>231,809</h2>
-                <span class="sparkline_one" style={{height:'160px'}}>
-                <canvas width="200" height="60"style={{display:'inline-block', verticalAalign:'top', width:'94px', height:'30px'}}></canvas>
-                  </span>
-              </div>
-            </div>
-            <br />
+            <div class="right_col" role="main">
+              <div class="">
+                <div class="row top_tiles" style={{margin:'10px 0'}}>
+                  <div class="col-md-3 col-sm-3 col-xs-6 tile">
+                    <span>Total Sessions</span>
+                    <h2>231,809</h2>
+                    <span class="sparkline_one" style={{height:'160px'}}>
+                    <canvas width="200" height="60" style={{display: 'inline-block',
+                    verticalAlign: 'top',width: '94px',height: '30px'}}></canvas>
+                      </span>
+                  </div>
+                  <div class="col-md-3 col-sm-3 col-xs-6 tile">
+                    <span>Total Revenue</span>
+                    <h2>$ 231,809</h2>
+                    <span class="sparkline_one" style={{height:'160px'}}>
+                          <canvas width="200" height="60" style={{display:'inline-block', verticalAlign:'top', width:'94px', height:'30px'}}></canvas>
+                      </span>
+                  </div>
+                  <div class="col-md-3 col-sm-3 col-xs-6 tile">
+                    <span>Total Sessions</span>
+                    <h2>231,809</h2>
+                    <span class="sparkline_two" style={{height:'160px'}}>
+                    <canvas width="200" height="60"style={{display:'inline-block', verticalAalign:'top', width:'94px', height:'30px'}}></canvas>
+                      </span> 
+                  </div>
+                  <div class="col-md-3 col-sm-3 col-xs-6 tile">
+                    <span>Total Sessions</span>
+                    <h2>231,809</h2>
+                    <span class="sparkline_one" style={{height:'160px'}}>
+                    <canvas width="200" height="60"style={{display:'inline-block', verticalAalign:'top', width:'94px', height:'30px'}}></canvas>
+                      </span>
+                  </div>
+                </div>
+                <br />
 
 
             <div class="row">
