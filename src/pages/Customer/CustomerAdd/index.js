@@ -5,109 +5,113 @@ function CustomerAdd() {
   return (
     
         <AdminLayout>
-         <div className="right_col-md-10 col-sm-8 col-xs-12" role="main">
-          <div className="">
-            <div className="page-title">
-              <div className="title_left">
-                <h3>ADD</h3>
-              </div>
-
-              <div className="title_right">
-                <div className="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                  <div className="input-group">
-                    <input type="text" className="form-control" placeholder="Search for..."/>
-                    <span className="input-group-btn">
-                      <button className="btn btn-default" type="button">Go!</button>
-                    </span>
-                  </div>
+         <div className="page-wrapper">
+            
+            
+            <div className="page-breadcrumb">
+                <div className="row">
+                    <div className="col-12 d-flex no-block align-items-center">
+                        <h4 className="page-title">Form Basic</h4>
+                        <div className="ml-auto text-right">
+                            <nav aria-label="breadcrumb">
+                                <ol className="breadcrumb">
+                                    <li className="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li className="breadcrumb-item active" aria-current="page">Library</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-            <div className="clearfix"></div>
-            <div className="row">
-              <div className="col-md-12 col-sm-12 col-xs-12">
-                <div className="x_panel">
-                  <div className="x_title">
-                    <h2>Form Design <small>different form elements</small></h2>
-                    <ul className="nav navbar-right panel_toolbox">
-                      <li><a className="collapse-link"><i className="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li className="dropdown">
-                        <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i className="fa fa-wrench"></i></a>
-                        <ul className="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li><a className="close-link"><i className="fa fa-close"></i></a>
-                      </li>
-                    </ul>
-                    <div className="clearfix"></div>
-                  </div>
-                  <div className="x_content">
-                    <br />
-                    <form id="demo-form2" data-parsley-validate className="form-horizontal form-label-left">
+           
+            <div className="container-fluid">
+                 
+                <div className="row">
+                    <div className="col-md-12">
+                        <div className="card">
+                            <form className="form-horizontal">
+                                <div className="card-body">
+                                    <h4 className="card-title">Personal Info</h4>
+                                    <div className="form-group row">
+                                        <label for="fname" className="col-sm-3 text-right control-label col-form-label">First Name</label>
+                                        <div className="col-sm-9">
+                                            <input type="text" className="form-control" id="fname" placeholder="First Name Here"/>
+                                        </div>
+                                    </div>
+                                    <div className="form-group row">
+                                        <label for="lname" className="col-sm-3 text-right control-label col-form-label">Last Name</label>
+                                        <div className="col-sm-9">
+                                            <input type="text" className="form-control" id="lname" placeholder="Last Name Here"/>
+                                        </div>
+                                    </div>
+                                    <div className="form-group row">
+                                        <label for="lname" className="col-sm-3 text-right control-label col-form-label">Password</label>
+                                        <div className="col-sm-9">
+                                            <input type="password" className="form-control" id="lname" placeholder="Password Here"/>
+                                        </div>
+                                    </div>
+                                    <div className="form-group row">
+                                        <label for="email1" className="col-sm-3 text-right control-label col-form-label">Company</label>
+                                        <div className="col-sm-9">
+                                            <input type="text" className="form-control" id="email1" placeholder="Company Name Here"/>
+                                        </div>
+                                    </div>
+                                    <div className="form-group row">
+                                        <label for="cono1" className="col-sm-3 text-right control-label col-form-label">Contact No</label>
+                                        <div className="col-sm-9">
+                                            <input type="text" className="form-control" id="cono1" placeholder="Contact No Here"/>
+                                        </div>
+                                    </div>
+                                    <div className="form-group row">
+                                        <label for="cono1" className="col-sm-3 text-right control-label col-form-label">Message</label>
+                                        <div className="col-sm-9">
+                                            <textarea className="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                    <div className="form-group m-t-20">
+                                    <label>Date Mask <small className="text-muted">dd/mm/yyyy</small></label>
+                                    <input type="text" className="form-control date-inputmask" id="date-mask" placeholder="Enter Date"/>
+                                </div>
+                                <div className="form-group">
+                                    <label>Phone <small className="text-muted">(999) 999-9999</small></label>
+                                    <input type="text" className="form-control phone-inputmask" id="phone-mask" placeholder="Enter Phone Number"/>
+                                </div>
+                                <div className="form-group">
+                                    <label>International Number <small className="text-muted">+19 999 999 999</small></label>
+                                    <input type="text" className="form-control international-inputmask" id="international-mask" placeholder="International Phone Number"/>
+                                </div>
+                                <div className="form-group">
+                                    <label>Phone / xEx <small className="text-muted">(999) 999-9999 / x999999</small></label>
+                                    <input type="text" className="form-control xphone-inputmask" id="xphone-mask" placeholder="Enter Phone Number"/>
+                                </div>
+                                <div className="form-group"></div>
+                                </div>
+                                <div className="border-top">
+                                    <div className="card-body">
+                                        <button type="button" className="btn btn-primary">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                       
+                        
 
-                      <div className="form-group">
-                        <label className="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">First Name <span className="required">*</span>
-                        </label>
-                        <div className="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="first-name" required="required" className="form-control col-md-7 col-xs-12"/>
+                    </div>
+                     
+                           
                         </div>
-                      </div>
-                      <div className="form-group">
-                        <label className="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Last Name <span className="required">*</span>
-                        </label>
-                        <div className="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="last-name" name="last-name" required="required" className="form-control col-md-7 col-xs-12"/>
-                        </div>
-                      </div>
-                      <div className="form-group">
-                        <label for="middle-name" className="control-label col-md-3 col-sm-3 col-xs-12">Middle Name / Initial</label>
-                        <div className="col-md-6 col-sm-6 col-xs-12">
-                          <input id="middle-name" className="form-control col-md-7 col-xs-12" type="text" name="middle-name"/>
-                        </div>
-                      </div>
-                      <div className="form-group">
-                        <label className="control-label col-md-3 col-sm-3 col-xs-12">Gender</label>
-                        <div className="col-md-6 col-sm-6 col-xs-12">
-                          <div id="gender" className="btn-group" data-toggle="buttons">
-                            <label className="btn btn-default" data-toggle-className="btn-primary" data-toggle-passive-className="btn-default">
-                              <input type="radio" name="gender" value="male"/> &nbsp; Male &nbsp;
-                            </label>
-                            <label className="btn btn-primary" data-toggle-className="btn-primary" data-toggle-passive-className="btn-default">
-                              <input type="radio" name="gender" value="female"/> Female
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="form-group">
-                        <label className="control-label col-md-3 col-sm-3 col-xs-12">Date Of Birth <span className="required">*</span>
-                        </label>
-                        <div className="col-md-6 col-sm-6 col-xs-12">
-                          <input id="birthday" className="date-picker form-control col-md-7 col-xs-12" required="required" type="text"/>
-                        </div>
-                      </div>
-                      <div className="ln_solid"></div>
-                      <div className="form-group">
-                        <div className="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                          <button className="btn btn-primary" type="button">Cancel</button>
-						  <button className="btn btn-primary" type="reset">Reset</button>
-                          <button type="submit" className="btn btn-success">Submit</button>
-                        </div>
-                      </div>
-
-                    </form>
-                  </div>
+                         
+                         
+                    </div>
                 </div>
-              </div>
-            </div>
- 
+              
+                
+               
           
-        </div>
-        </div>
+            
+            
+            
+        
         </AdminLayout>
     
   )

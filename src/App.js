@@ -13,8 +13,8 @@ function App() {
     <BrowserRouter>
       <Routes>
       <Route path="/" element={<Dashboard />} />
-      <Route path="/customer" element={<Customer />} />
-      <Route path="/customer/add" element={<CustomerAdd />} />
+     < Route path="/customer" element={<Customer />} />
+       <Route path="/customer/add" element={<CustomerAdd />} /> 
       </Routes>
     </BrowserRouter>
   );
