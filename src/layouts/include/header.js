@@ -12,7 +12,7 @@ function Header() {
                         <i className="ti-menu ti-close"></i>
                     </a>
                     {/* Logo */}
-                    <a className="navbar-brand" href="index.html">
+                    <a className="navbar-brand" href="#">
                         {/* Logo icon */}
                         <b className="logo-icon p-l-10">
                             <img src="./assets_admin/assets/images/logo-icon.png" alt="homepage" className="light-logo" />
