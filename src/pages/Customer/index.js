@@ -37,11 +37,11 @@ function Customer(){
                                         <thead>
                                             <tr>
                                                 <th>Name</th>
-                                                <th>Position</th>
-                                                <th>Office</th>
-                                                <th>Age</th>
-                                                <th>Start date</th>
-                                                <th>Salary</th>
+                                                <th>Date of birth</th>
+                                                <th>Phone No</th>
+                                                <th>Email</th>
+                                                <th>AC Number</th>
+                                                <th>Ac Type</th>
                                             </tr>
                                         </thead>
                                         <tbody>

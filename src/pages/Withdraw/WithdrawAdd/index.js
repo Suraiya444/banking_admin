@@ -28,62 +28,36 @@ function WithdrawAdd() {
                  
                 <div className="row">
                     <div className="col-md-12">
-                        <div className="card">
+                    <div className="card">
                             <form className="form-horizontal">
                                 <div className="card-body">
-                                    <h4 className="card-title">Personal Info</h4>
+                                    <h4 className="card-title">Withdraw</h4>
                                     <div className="form-group row">
-                                        <label for="fname" className="col-sm-3 text-right control-label col-form-label">First Name</label>
+                                        <label for="fname" className="col-sm-3 text-right control-label col-form-label">Account Number</label>
                                         <div className="col-sm-9">
-                                            <input type="text" className="form-control" id="fname" placeholder="First Name Here"/>
+                                            <input type="text" className="form-control" id="fname" placeholder="account no.."/>
                                         </div>
                                     </div>
                                     <div className="form-group row">
-                                        <label for="lname" className="col-sm-3 text-right control-label col-form-label">Last Name</label>
+                                        <label for="lname" className="col-sm-3 text-right control-label col-form-label"> Name</label>
                                         <div className="col-sm-9">
-                                            <input type="text" className="form-control" id="lname" placeholder="Last Name Here"/>
+                                            <input type="text" className="form-control" id="lname" placeholder="Name Here"/>
                                         </div>
                                     </div>
                                     <div className="form-group row">
-                                        <label for="lname" className="col-sm-3 text-right control-label col-form-label">Password</label>
+                                        <label for="lname" className="col-sm-3 text-right control-label col-form-label">Branch</label>
                                         <div className="col-sm-9">
-                                            <input type="password" className="form-control" id="lname" placeholder="Password Here"/>
+                                            <input type="password" className="form-control" id="lname" placeholder="branch"/>
                                         </div>
                                     </div>
                                     <div className="form-group row">
-                                        <label for="email1" className="col-sm-3 text-right control-label col-form-label">Company</label>
+                                        <label for="email1" className="col-sm-3 text-right control-label col-form-label">Amount</label>
                                         <div className="col-sm-9">
-                                            <input type="text" className="form-control" id="email1" placeholder="Company Name Here"/>
+                                            <input type="text" className="form-control" id="email1" placeholder="amount"/>
                                         </div>
                                     </div>
-                                    <div className="form-group row">
-                                        <label for="cono1" className="col-sm-3 text-right control-label col-form-label">Contact No</label>
-                                        <div className="col-sm-9">
-                                            <input type="text" className="form-control" id="cono1" placeholder="Contact No Here"/>
-                                        </div>
-                                    </div>
-                                    <div className="form-group row">
-                                        <label for="cono1" className="col-sm-3 text-right control-label col-form-label">Message</label>
-                                        <div className="col-sm-9">
-                                            <textarea className="form-control"></textarea>
-                                        </div>
-                                    </div>
-                                    <div className="form-group m-t-20">
-                                    <label>Date Mask <small className="text-muted">dd/mm/yyyy</small></label>
-                                    <input type="text" className="form-control date-inputmask" id="date-mask" placeholder="Enter Date"/>
-                                </div>
-                                <div className="form-group">
-                                    <label>Phone <small className="text-muted">(999) 999-9999</small></label>
-                                    <input type="text" className="form-control phone-inputmask" id="phone-mask" placeholder="Enter Phone Number"/>
-                                </div>
-                                <div className="form-group">
-                                    <label>International Number <small className="text-muted">+19 999 999 999</small></label>
-                                    <input type="text" className="form-control international-inputmask" id="international-mask" placeholder="International Phone Number"/>
-                                </div>
-                                <div className="form-group">
-                                    <label>Phone / xEx <small className="text-muted">(999) 999-9999 / x999999</small></label>
-                                    <input type="text" className="form-control xphone-inputmask" id="xphone-mask" placeholder="Enter Phone Number"/>
-                                </div>
+                                     
+                                   
                                 <div className="form-group"></div>
                                 </div>
                                 <div className="border-top">
