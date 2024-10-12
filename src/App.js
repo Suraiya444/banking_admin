@@ -10,6 +10,12 @@ import Customer from './pages/Customer';
  import Withdraw from './pages/Withdraw';
  import WithdrawAdd from './pages/Withdraw/WithdrawAdd';
  import Statement from './pages/Statement';
+ import BankAdd from './pages/Bank/BankAdd';
+ import Bank from './pages/Bank';
+
+ import BankBranchAdd from './pages/BankBranch/BankBranchAdd';
+ import BankBranch from './pages/BankBranch';
+
  import StatementList from './pages/Statement/StatementList';
  import Login from './pages/Login';
  import Register from './pages/Register';
@@ -25,7 +31,16 @@ function App() {
       <Route path="/login" element={< Login/>}/>
       <Route path="/register" element={< Register/>}/>
       <Route path="/" element={<Dashboard />} />
-     < Route path="/customer" element={<Customer />} />
+      
+      <Route path="/bank" element={<Bank />} />
+      <Route path="/bank/add" element={<BankAdd />} />
+      <Route path="/bank/edit/:id" element={<BankAdd />} />
+      
+      <Route path="/bank_branch" element={<BankBranch />} />
+      <Route path="/bank_branch/add" element={<BankBranchAdd />} />
+      <Route path="/bank_branch/edit/:id" element={<BankBranchAdd />} />
+      
+      <Route path="/customer" element={<Customer />} />
        <Route path="/customer/add" element={<CustomerAdd />} /> 
        <Route path="/deposit" element={<Deposit />} /> 
        <Route path="/deposit/add" element={<DepositAdd />} /> 

@@ -11,7 +11,7 @@ function TransferAdd() {
             <div className="page-breadcrumb">
                 <div className="row">
                     <div className="col-12 d-flex no-block align-items-center">
-                        <h4 className="page-title">Form Basic</h4>
+                        <h4 className="page-title">Transfer</h4>
                         <div className="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol className="breadcrumb">

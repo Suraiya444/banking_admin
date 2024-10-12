@@ -37,11 +37,11 @@ function Transfer(){
                                         <thead>
                                             <tr>
                                                 <th>Name</th>
-                                                <th>Position</th>
-                                                <th>Office</th>
-                                                <th>Age</th>
-                                                <th>Start date</th>
-                                                <th>Salary</th>
+                                                <th>Accpount No</th>
+                                                <th>Account Type</th>
+                                                <th>Sent To</th>
+                                                <th>Date</th>
+                                                <th>Balance</th>
                                             </tr>
                                         </thead>
                                         <tbody>
