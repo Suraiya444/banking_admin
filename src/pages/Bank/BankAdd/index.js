@@ -34,7 +34,7 @@ function BankAdd() {
         //console.log(inputs)
         
         try{
-            let apiurl='';
+            let apiurl='REACT_APP_API_URL';
             let mtd='';
             if(inputs.id!=''){
                 mtd='put';
@@ -80,7 +80,7 @@ function BankAdd() {
                 <div className="row">
                     <div className="col-md-12">
                         <div className="card">
-                            <form className="form-horizontal" onSubmit={handleSubmit}>
+                            <form  className="form-horizontal" onSubmit={handleSubmit}>
                                 <div className="card-body">
                                     <h4 className="card-title">Bank Info</h4>
                                     <div className="form-group row">

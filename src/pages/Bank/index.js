@@ -53,12 +53,12 @@ function Bank(){
                                     <table id="zero_config" className="table table-striped table-bordered">
                                         <thead>
                                             <tr>
+                                                <th>SL#</th>
                                                 <th>Name</th>
-                                                <th>Date of birth</th>
                                                 <th>Phone No</th>
                                                 <th>Email</th>
-                                                <th>AC Number</th>
-                                                <th>Ac Type</th>
+                                                <th>Address</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -76,16 +76,6 @@ function Bank(){
                                         </tr>
                                     )}
                                         </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Position</th>
-                                                <th>Office</th>
-                                                <th>Age</th>
-                                                <th>Start date</th>
-                                                <th>Salary</th>
-                                            </tr>
-                                        </tfoot>
                                     </table>
                                 </div>
 

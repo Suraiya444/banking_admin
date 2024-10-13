@@ -14,7 +14,7 @@ function Register(){
     const handleSubmit = async (e) => {
         e.preventDefault();
         await register(inputs);
-        //navigate('/login')
+        navigate('/login')
     }
     return(
         <div className="auth-wrapper d-flex no-block justify-content-center align-items-center bg-white">
