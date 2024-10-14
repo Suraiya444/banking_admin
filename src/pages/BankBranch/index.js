@@ -51,13 +51,13 @@ function BankBranch(){
                                     <table id="zero_config" className="table table-striped table-bordered">
                                         <thead>
                                             <tr>
-                                                <th>#SL</th>
-                                                <th>Bank</th>
-                                                <th>Branch</th>
-                                                <th>Phone No</th>
-                                                <th>Email</th>
-                                                <th>Address</th>
-                                                <th>Action</th>
+                                                <th><strong>#SL</strong></th>
+                                                <th><strong>Bank</strong></th>
+                                                <th><strong>Branch</strong></th>
+                                                <th><strong>Phone No</strong></th>
+                                                <th><strong>Email</strong></th>
+                                                <th><strong>Address</strong></th> 
+                                                <th><strong>Action</strong></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -76,15 +76,7 @@ function BankBranch(){
                                         </tr>
                                     )}
                                         </tbody>
-                                        <tfoot>
-                                            <th>#SL</th>
-                                            <th>Bank</th>
-                                            <th>Branch</th>
-                                            <th>Phone No</th>
-                                            <th>Email</th>
-                                            <th>Address</th>
-                                            <th>Action</th>
-                                        </tfoot>
+                                        
                                     </table>
                                 </div>
 
