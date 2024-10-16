@@ -3,7 +3,7 @@ import axios from 'axios';
 import AdminLayout from '../../layouts/AdminLayout';
 import { Link } from 'react-router-dom';
 
-function Customer(){
+function Account_type(){
     const[data, setData]=useState([]);
     const config = {
         headers: { Authorization: `Bearer ${localStorage.getItem("access_token")}` }
@@ -56,15 +56,12 @@ function Customer(){
                                             <tr>
                                                 <th>SL#</th>
                                                 <th>Name</th>
-                                                <th>Father Name</th>
-                                                <th>Mother Name</th>
-                                                <th>Contact</th>
-                                                <th>NID</th>
-                                                <th>Permanent Address</th>
-                                                <th>Present Address</th>
-                                                <th>Date Of Birth</th>
-                                                <th>Gender</th>
-                                                <th>Education</th>
+                                                <th>Loanable Amount</th>
+                                                <th>Loan Amount</th>
+                                                <th>Minimum Balance</th>
+                                                <th>Maximum Balance</th>
+                                                <th>Maximum Withdraw</th>
+                                                <th>Yearly Interest</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -87,28 +84,24 @@ function Customer(){
                                     )} */}
                                      <tr>
                                                 <th>1</th>
-                                                <th>Kamal</th>
-                                                <th>jamal</th>
-                                                <th>rina</th>
-                                                <th>5656756</th>
-                                                <th>6475756556</th>
-                                                <th>2no Gate</th>
-                                                <th>2no Gate</th>
-                                                <th>Male</th>
-                                                <th>Hsc</th>
+                                                <th>Savings</th>
+                                                <th>10000</th>
+                                                <th>5000</th>
+                                                <th>1000</th>
+                                                <th>10000</th>
+                                                <th>10000</th>
+                                                <th>5</th>
                                                 <th>Action</th>
                                             </tr>
                                             <tr>
-                                            <th>1</th>
-                                                <th>suraiya</th>
-                                                <th>jamal</th>
-                                                <th>rina</th>
-                                                <th>5656756</th>
-                                                <th>6475756556</th>
-                                                <th>2no Gate</th>
-                                                <th>2no Gate</th>
-                                                <th>FeMale</th>
-                                                <th>Hsc</th>
+                                                <th>2</th>
+                                                <th>Fixed</th>
+                                                <th>1000</th>
+                                                <th>5000</th>
+                                                <th>1000</th>
+                                                <th>10000</th>
+                                                <th>0000</th>
+                                                <th>5</th>
                                                 <th>Action</th>
                                             </tr>
                                         </tbody>
@@ -126,4 +119,4 @@ function Customer(){
         </AdminLayout>
     )
 }
-export default Customer; 
+export default Account_type; 

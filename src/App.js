@@ -12,44 +12,126 @@ import Customer from './pages/Customer';
  import Statement from './pages/Statement';
  import BankAdd from './pages/Bank/BankAdd';
  import Bank from './pages/Bank';
+ 
+ import Account_type from './pages/Account_type';
+ import Account_typeAdd from './pages/Account_type/AccountTypeAdd';
 
  import BankBranchAdd from './pages/BankBranch/BankBranchAdd';
  import BankBranch from './pages/BankBranch';
+
+ 
 
  import StatementList from './pages/Statement/StatementList';
  import Login from './pages/Login';
  import Register from './pages/Register';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Protected from './components/protected';
 
  
 function App() {
-  
+  const isSignedIn = localStorage.getItem("access_token") || false;
    
   return (
     <BrowserRouter>
       <Routes>
       <Route path="/login" element={< Login/>}/>
       <Route path="/register" element={< Register/>}/>
-      <Route path="/" element={<Dashboard />} />
-      
-      <Route path="/bank" element={<Bank />} />
-      <Route path="/bank/add" element={<BankAdd />} />
-      <Route path="/bank/edit/:id" element={<BankAdd />} />
-      
-      <Route path="/bank_branch" element={<BankBranch />} />
-      <Route path="/bank_branch/add" element={<BankBranchAdd />} />
-      <Route path="/bank_branch/edit/:id" element={<BankBranchAdd />} />
-      
-      <Route path="/customer" element={<Customer />} />
-       <Route path="/customer/add" element={<CustomerAdd />} /> 
-       <Route path="/deposit" element={<Deposit />} /> 
-       <Route path="/deposit/add" element={<DepositAdd />} /> 
-       <Route path="/transfer" element={<Transfer />} /> 
-       <Route path="/transfer/add" element={<TransferAdd />} /> 
-       <Route path="/withdraw" element={<Withdraw/>}/>
-       <Route path="/withdraw/add" element={<WithdrawAdd/>}/>
-       <Route path="/statement" element={<Statement/>}/>
-       <Route path="/statement/list" element={< StatementList/>}/>
+      <Route path={"/"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <Dashboard />
+          </Protected>
+        } />
+        <Route path={"/bank"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <Bank />
+          </Protected>
+        } />
+         <Route path={"/bank/add"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <BankAdd />
+          </Protected>
+        } />
+          <Route path={"/bank/edit/:id"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <BankAdd />
+          </Protected>
+        } />
+         <Route path={"/bank_branch"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <BankBranch />
+          </Protected>
+        } />
+         <Route path={"/bank_branch/add"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <BankBranchAdd />
+          </Protected>
+        } />
+       <Route path={"/bank_branch/edit/:id"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <BankBranchAdd />
+          </Protected>
+        } />
+       <Route path={"/customer"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <Customer />
+          </Protected>
+        } />
+         <Route path={"/customer/add"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <CustomerAdd />
+          </Protected>
+        } />
+        <Route path={"/deposit"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <Deposit />
+          </Protected>
+        } />
+         <Route path={"/deposit/add"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <DepositAdd />
+          </Protected>
+        } />
+      <Route path={"/transfer"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <Transfer />
+          </Protected>
+        } />
+         <Route path={"/transfer/add"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <TransferAdd />
+          </Protected>
+        } />
+         <Route path={"/withdraw"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <Withdraw />
+          </Protected>
+        } />
+         <Route path={"/withdraw/add"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <WithdrawAdd />
+          </Protected>
+        } />
+         <Route path={"/statement"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <Statement />
+          </Protected>
+        } />
+         <Route path={"/statement/list"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <StatementList />
+          </Protected>
+        } />
+         <Route path={"/account_type/add"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <Account_typeAdd />
+          </Protected>
+        } />
+         <Route path={"/account_type"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <Account_type />
+          </Protected>
+        } />
+        
       
       </Routes>
     </BrowserRouter>

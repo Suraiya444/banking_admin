@@ -27,20 +27,20 @@ const isLinkActive = (path)=>{
           <nav className="sidebar-nav">
               <ul id="sidebarnav" className="p-t-10">
                    
-                  <li className="sidebar-item"> <a className="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i className="mdi mdi-receipt" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}>Customer </span></a>
+                  <li className="sidebar-item"> <a className="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i className="mdi mdi-receipt" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}><Link to="/bank">Bank</Link> </span></a>
                       <ul aria-expanded="false" className="collapse  first-level">
                           <li className="sidebar-item"><a href="form-basic.html" className="sidebar-link"><i className="mdi mdi-note-outline" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}> Form Basic </span></a></li>
                           <li className="sidebar-item"><a href="form-wizard.html" className="sidebar-link"><i className="mdi mdi-note-plus" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}> Form Wizard </span></a></li>
                       </ul>
                   </li>
-                  <li className="sidebar-item"> <a className="sidebar-link waves-effect waves-dark sidebar-link" href="pages-buttons.html" aria-expanded="false"><i className="mdi mdi-relative-scale" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}>Buttons</span></a></li>
-                  <li className="sidebar-item"> <a className="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i className="mdi mdi-face" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}>Icons </span></a>
+                  <li className="sidebar-item"> <a className="sidebar-link waves-effect waves-dark sidebar-link" href="pages-buttons.html" aria-expanded="false"><i className="mdi mdi-relative-scale" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}><Link to="/bank_branch">bank Branch</Link> </span></a></li>
+                  <li className="sidebar-item"> <a className="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i className="mdi mdi-face" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}><Link to="/customer">Customer</Link>  </span></a>
                       <ul aria-expanded="false" className="collapse  first-level">
                           <li className="sidebar-item"><a href="icon-material.html" className="sidebar-link"><i className="mdi mdi-emoticon" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}> Material Icons </span></a></li>
                           <li className="sidebar-item"><a href="icon-fontawesome.html" className="sidebar-link"><i className="mdi mdi-emoticon-cool" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}> Font Awesome Icons </span></a></li>
                       </ul>
                   </li>
-                  <li className="sidebar-item"> <a className="sidebar-link waves-effect waves-dark sidebar-link" href="pages-elements.html" aria-expanded="false"><i className="mdi mdi-pencil" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}>Elements</span></a></li>
+                  <li className="sidebar-item"> <a className="sidebar-link waves-effect waves-dark sidebar-link" href="pages-elements.html" aria-expanded="false"><i className="mdi mdi-pencil" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}><Link to="/account_type">Account Type</Link></span></a></li>
                   <li className="sidebar-item"> <a className="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i className="mdi mdi-move-resize-variant" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}>Addons </span></a>
                       <ul aria-expanded="false" className="collapse  first-level">
                           <li className="sidebar-item"><a href="index2.html" className="sidebar-link"><i className="mdi mdi-view-dashboard" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}> Dashboard-2 </span></a></li>
