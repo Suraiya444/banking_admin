@@ -42,7 +42,7 @@ import { login } from '../../Api/AllApi';
                                 <div className="input-group-prepend">
                                     <span className="input-group-text bg-info text-white" id="basic-addon2"><i className="ti-pencil"></i></span>
                                 </div>
-                                <input type="text" className="form-control form-control-lg" placeholder="Password" name="password" onChange={handleChange} required=""/>
+                                <input type="password" className="form-control form-control-lg" placeholder="Password" name="password" onChange={handleChange} required=""/>
                             </div>
                         </div>
                     </div>
