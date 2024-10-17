@@ -19,6 +19,8 @@ import Customer from './pages/Customer';
  import BankBranchAdd from './pages/BankBranch/BankBranchAdd';
  import BankBranch from './pages/BankBranch';
 
+ import Loan from './pages/Loan/LoanAdd';
+
  
 
  import StatementList from './pages/Statement/StatementList';
@@ -129,6 +131,11 @@ function App() {
          <Route path={"/account_type"} element={
           <Protected isSignedIn={isSignedIn} >
             <Account_type />
+          </Protected>
+        } />
+         <Route path={"/loan/add"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <Loan />
           </Protected>
         } />
         

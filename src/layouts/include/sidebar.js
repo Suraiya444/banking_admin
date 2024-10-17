@@ -41,22 +41,26 @@ const isLinkActive = (path)=>{
                       </ul>
                   </li>
                   <li className="sidebar-item"> <a className="sidebar-link waves-effect waves-dark sidebar-link" href="pages-elements.html" aria-expanded="false"><i className="mdi mdi-pencil" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}><Link to="/account_type">Account Type</Link></span></a></li>
-                  <li className="sidebar-item"> <a className="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i className="mdi mdi-move-resize-variant" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}>Addons </span></a>
-                      <ul aria-expanded="false" className="collapse  first-level">
-                          <li className="sidebar-item"><a href="index2.html" className="sidebar-link"><i className="mdi mdi-view-dashboard" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}> Dashboard-2 </span></a></li>
-                          <li className="sidebar-item"><a href="pages-gallery.html" className="sidebar-link"><i className="mdi mdi-multiplication-box" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}> Gallery </span></a></li>
-                          <li className="sidebar-item"><a href="pages-calendar.html" className="sidebar-link"><i className="mdi mdi-calendar-check" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}> Calendar </span></a></li>
-                          <li className="sidebar-item"><a href="pages-invoice.html" className="sidebar-link"><i className="mdi mdi-bulletin-board" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}> Invoice </span></a></li>
-                          <li className="sidebar-item"><a href="pages-chat.html" className="sidebar-link"><i className="mdi mdi-message-outline" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}> Chat Option </span></a></li>
-                      </ul>
-                  </li>
-                  <li className="sidebar-item"> <a className="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i className="mdi mdi-account-key" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}>Authentication </span></a>
+                  
+                  <li className="sidebar-item"> <a className="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i className="mdi mdi-account-key" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}><Link to="/transfer/add">Money Transfer</Link></span></a>
                       <ul aria-expanded="false" className="collapse  first-level">
                           <li className="sidebar-item"><a href="authentication-login.html" className="sidebar-link"><i className="mdi mdi-all-inclusive" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}> Login </span></a></li>
                           <li className="sidebar-item"><a href="authentication-register.html" className="sidebar-link"><i className="mdi mdi-all-inclusive" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}> Register </span></a></li>
                       </ul>
                   </li>
-                  <li className="sidebar-item"> <a className="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i className="mdi mdi-alert" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}>Errors </span></a>
+                  <li className="sidebar-item"> <a className="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i className="mdi mdi-account-key" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}><Link to="/deposit">Money Deposit</Link></span></a>
+                      <ul aria-expanded="false" className="collapse  first-level">
+                          <li className="sidebar-item"><a href="authentication-login.html" className="sidebar-link"><i className="mdi mdi-all-inclusive" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}> Login </span></a></li>
+                          <li className="sidebar-item"><a href="authentication-register.html" className="sidebar-link"><i className="mdi mdi-all-inclusive" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}> Register </span></a></li>
+                      </ul>
+                  </li>
+                  <li className="sidebar-item"> <a className="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i className="mdi mdi-account-key" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}><Link to="/statement/list">Statement</Link></span></a>
+                      <ul aria-expanded="false" className="collapse  first-level">
+                          <li className="sidebar-item"><a href="authentication-login.html" className="sidebar-link"><i className="mdi mdi-all-inclusive" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}> Login </span></a></li>
+                          <li className="sidebar-item"><a href="authentication-register.html" className="sidebar-link"><i className="mdi mdi-all-inclusive" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}> Register </span></a></li>
+                      </ul>
+                  </li>
+                  <li className="sidebar-item"> <a className="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i className="mdi mdi-alert" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}><Link to ="/loan/add">Loan</Link></span></a>
                       <ul aria-expanded="false" className="collapse  first-level">
                           <li className="sidebar-item"><a href="error-403.html" className="sidebar-link"><i className="mdi mdi-alert-octagon" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}> Error 403 </span></a></li>
                           <li className="sidebar-item"><a href="error-404.html" className="sidebar-link"><i className="mdi mdi-alert-octagon" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}> Error 404 </span></a></li>
