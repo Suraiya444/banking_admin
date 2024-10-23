@@ -4,15 +4,15 @@ import AdminLayout from '../../../layouts/AdminLayout';
 import { useNavigate } from 'react-router-dom';
 import {useParams} from "react-router-dom";
 
-function BankAdd() {
-    const [inputs, setInputs] = useState({id:'',name:'',contact_no:'',email:'',address:''});
+function DistrictAdd() {
+    const [inputs, setInputs] = useState({name:''});
     const navigate=useNavigate();
     const {id} = useParams();
     const config = {
         headers: { Authorization: `Bearer ${localStorage.getItem("access_token")}` }
     };
     function getDatas(){
-        axios.get(`${process.env.REACT_APP_API_URL}/bank/${id}`,config).then(function(response) {
+        axios.get(`${process.env.REACT_APP_API_URL}/district/${id}`,config).then(function(response) {
             setInputs(response.data.data);
         });
     }
@@ -38,10 +38,10 @@ function BankAdd() {
             let mtd='';
             if(inputs.id!=''){
                 mtd='put';
-                apiurl=`/bank/${inputs.id}`;
+                apiurl=`/district/${inputs.id}`;
             }else{
                 mtd='post';
-                apiurl=`/bank`;
+                apiurl=`/district`;
             }
             
             let response= await axios({
@@ -51,7 +51,7 @@ function BankAdd() {
                 data: inputs,
                 headers: { Authorization: `Bearer ${localStorage.getItem("access_token")}` }
             });
-            navigate('/bank')
+            navigate('/district')
         } 
         catch(e){
             console.log(e);
@@ -63,12 +63,12 @@ function BankAdd() {
             <div className="page-breadcrumb">
                 <div className="row">
                     <div className="col-12 d-flex no-block align-items-center">
-                        <h4 className="page-title">Bank</h4>
+                        <h4 className="page-title">District</h4>
                         <div className="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol className="breadcrumb">
                                     <li className="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li className="breadcrumb-item active" aria-current="page">Bank</li>
+                                    <li className="breadcrumb-item active" aria-current="page">Dstrict</li>
                                 </ol>
                             </nav>
                         </div>
@@ -82,29 +82,11 @@ function BankAdd() {
                         <div className="card">
                             <form  className="form-horizontal" onSubmit={handleSubmit}>
                                 <div className="card-body">
-                                    <h4 className="card-title">Bank Info</h4>
+                                    <h4 className="card-title">District</h4>
                                     <div className="form-group row">
-                                        <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Bank Name</label>
+                                        <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">District Name</label>
                                         <div className="col-sm-9">
                                             <input type="text" className="form-control" id="name" name='name' defaultValue={inputs.name} onChange={handleChange}/>
-                                        </div>
-                                    </div>
-                                    <div className="form-group row">
-                                        <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Bank Contact Number</label>
-                                        <div className="col-sm-9">
-                                            <input type="text" className="form-control" id="name" name='contact_no' defaultValue={inputs.contact_no} onChange={handleChange}/>
-                                        </div>
-                                    </div>
-                                    <div className="form-group row">
-                                        <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Bank Email Address</label>
-                                        <div className="col-sm-9">
-                                            <input type="text" className="form-control" id="email" name='email' defaultValue={inputs.email} onChange={handleChange}/>
-                                        </div>
-                                    </div>
-                                    <div className="form-group row">
-                                        <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Bank Address</label>
-                                        <div className="col-sm-9">
-                                            <input type="text" className="form-control" id="address" name='address' defaultValue={inputs.address} onChange={handleChange}/>
                                         </div>
                                     </div>
                                 </div>
@@ -124,4 +106,4 @@ function BankAdd() {
   )
 }
 
-export default BankAdd
+export default DistrictAdd

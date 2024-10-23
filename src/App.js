@@ -1,6 +1,8 @@
 import * as React from 'react';
 
 import Dashboard from './pages/Dashboard';
+ import DistrictAdd from './pages/District/DistrictAdd';
+ import District from './pages/District';
 import Customer from './pages/Customer';
  import CustomerAdd from './pages/Customer/CustomerAdd';
  import Deposit from './pages/Deposit';
@@ -9,9 +11,10 @@ import Customer from './pages/Customer';
  import TransferAdd from './pages/Transfer/TransferAdd';
  import Withdraw from './pages/Withdraw';
  import WithdrawAdd from './pages/Withdraw/WithdrawAdd';
- import Statement from './pages/Statement';
+ import Statement from './pages/Statement'; 
  import BankAdd from './pages/Bank/BankAdd';
  import Bank from './pages/Bank';
+
  
  import Account_type from './pages/Account_type';
  import Account_typeAdd from './pages/Account_type/AccountTypeAdd';
@@ -56,6 +59,21 @@ function App() {
           <Route path={"/bank/edit/:id"} element={
           <Protected isSignedIn={isSignedIn} >
             <BankAdd />
+          </Protected>
+        } />
+         <Route path={"/district"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <District />
+          </Protected>
+        } />
+         <Route path={"/district/add"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <DistrictAdd />
+          </Protected>
+        } />
+          <Route path={"/district/edit/:id"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <DistrictAdd />
           </Protected>
         } />
          <Route path={"/bank_branch"} element={
