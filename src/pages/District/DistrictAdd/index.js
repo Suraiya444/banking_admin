@@ -1,22 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios from '../../../components/axios';
 import AdminLayout from '../../../layouts/AdminLayout';
 import { useNavigate } from 'react-router-dom';
 import {useParams} from "react-router-dom";
 
 function DistrictAdd() {
-    const [inputs, setInputs] = useState({name:''});
+    const [inputs, setInputs] = useState({id :'',name:''});
     const navigate=useNavigate();
     const {id} = useParams();
-    const config = {
-        headers: { Authorization: `Bearer ${localStorage.getItem("access_token")}` }
-    };
-    function getDatas(){
-        axios.get(`${process.env.REACT_APP_API_URL}/district/${id}`,config).then(function(response) {
+
+
+    const getDatas = async (e)=>{
+        let response = await axios.get(`/district/${id}`)
             setInputs(response.data.data);
-        });
+       
     }
-    
+
     useEffect(() => {
         if(id){
             getDatas();
@@ -31,32 +30,76 @@ function DistrictAdd() {
 
     const handleSubmit = async(e) => {
         e.preventDefault();
-        //console.log(inputs)
+        console.log(inputs)
         
         try{
-            let apiurl='REACT_APP_API_URL';
-            let mtd='';
+            let apiurl='';
             if(inputs.id!=''){
-                mtd='put';
-                apiurl=`/district/${inputs.id}`;
+                  apiurl =`/district/${inputs.id}?_method=put`;
             }else{
-                mtd='post';
-                apiurl=`/district`;
+                apiurl=`/district `;
             }
             
-            let response= await axios({
-                method: mtd,
-                responsiveTYpe: 'json',
-                url: `${process.env.REACT_APP_API_URL}${apiurl}`,
-                data: inputs,
-                headers: { Authorization: `Bearer ${localStorage.getItem("access_token")}` }
-            });
+            let res = await axios.post(apiurl, inputs)
+            console.log(res);
             navigate('/district')
-        } 
-        catch(e){
+        }
+        catch (e) {
             console.log(e);
         }
     }
+
+
+
+    // const config = {
+    //     headers: { Authorization: `Bearer ${localStorage.getItem("access_token")}` }
+    // };
+    // function getDatas(){
+    //     axios.get(`${process.env.REACT_APP_API_URL}/district/${id}`,config).then(function(response) {
+    //         setInputs(response.data.data);
+    //     });
+    // }
+    
+    // useEffect(() => {
+    //     if(id){
+    //         getDatas();
+    //     }
+    // }, []);
+
+    // const handleChange = (event) => {
+    //     const name = event.target.name;
+    //     const value = event.target.value;
+    //     setInputs(values => ({...values, [name]: value}));
+    // }
+
+    // const handleSubmit = async(e) => {
+    //     e.preventDefault();
+    //     //console.log(inputs)
+        
+    //     try{
+    //         let apiurl='REACT_APP_API_URL';
+    //         let mtd='';
+    //         if(inputs.id!=''){
+    //             mtd='put';
+    //             apiurl=`/district/${inputs.id}`;
+    //         }else{
+    //             mtd='post';
+    //             apiurl=`/district`;
+    //         }
+            
+    //         let response= await axios({
+    //             method: mtd,
+    //             responsiveTYpe: 'json',
+    //             url: `${process.env.REACT_APP_API_URL}${apiurl}`,
+    //             data: inputs,
+    //             headers: { Authorization: `Bearer ${localStorage.getItem("access_token")}` }
+    //         });
+    //         navigate('/district')
+    //     } 
+    //     catch(e){
+    //         console.log(e);
+    //     }
+    // }
   return (
     <AdminLayout>
         <div className="page-wrapper">

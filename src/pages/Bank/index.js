@@ -1,25 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios from '../../components/axios';
 import AdminLayout from '../../layouts/AdminLayout';
 import { Link } from 'react-router-dom';
+
 function Bank(){
-    const[data, setData]=useState([]);
-    const config = {
-        headers: { Authorization: `Bearer ${localStorage.getItem("access_token")}` }
-    };
+    const [data, setData] = useState([]);
     useEffect(() => {
         getDatas();
     }, []);
 
-    function getDatas() {
-        axios.get(`${process.env.REACT_APP_API_URL}/bank`,config).then(function(response) {
-            setData(response.data.data);
-        });
+    const getDatas = async (e) => {
+        let res = await axios.get(`/bank`)
+        setData(res.data.data);
+
     }
-    const deleteData = (id) => {
-        axios.delete(`${process.env.REACT_APP_API_URL}/bank/${id}`,config).then(function(response){
-            getDatas();
-        });
+    const deleteData = async (id) => {
+        let res = await axios.delete(`/bank/${id}?_method=delete`)
+        getDatas();
     }
     return(
         <AdminLayout>
@@ -47,7 +44,7 @@ function Bank(){
                     <div className="col-12">
                         <div className="card">
                             <div className="card-body">
-                                <h5 className="card-title">Bank</h5>
+                                <h5 className="card-title">Bank List</h5>
                                 <Link to={'/bank/add'} className='btn btn-primary float-right' >Add New</Link>
                                 <div className="table-responsive">
                                     <table id="zero_config" className="table table-striped table-bordered">

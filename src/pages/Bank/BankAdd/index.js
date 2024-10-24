@@ -1,22 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios from '../../../components/axios';
 import AdminLayout from '../../../layouts/AdminLayout';
 import { useNavigate } from 'react-router-dom';
 import {useParams} from "react-router-dom";
 
 function BankAdd() {
-    const [inputs, setInputs] = useState({id:'',name:'',contact_no:'',email:'',address:''});
+    const [inputs, setInputs] = useState ({id:'',name:'',contact_no:'',email:'',address:''});
     const navigate=useNavigate();
     const {id} = useParams();
-    const config = {
-        headers: { Authorization: `Bearer ${localStorage.getItem("access_token")}` }
-    };
-    function getDatas(){
-        axios.get(`${process.env.REACT_APP_API_URL}/bank/${id}`,config).then(function(response) {
+
+
+    const getDatas = async (e)=>{
+        let response = await axios.get(`/bank/${id}`)
             setInputs(response.data.data);
-        });
+       
     }
-    
+
     useEffect(() => {
         if(id){
             getDatas();
@@ -31,32 +30,27 @@ function BankAdd() {
 
     const handleSubmit = async(e) => {
         e.preventDefault();
-        //console.log(inputs)
+        console.log(inputs)
         
         try{
-            let apiurl='REACT_APP_API_URL';
-            let mtd='';
+            let apiurl='';
             if(inputs.id!=''){
-                mtd='put';
-                apiurl=`/bank/${inputs.id}`;
+                  apiurl =`/bank/${inputs.id}?_method=put`;
             }else{
-                mtd='post';
-                apiurl=`/bank`;
+                apiurl=`/bank `;
             }
             
-            let response= await axios({
-                method: mtd,
-                responsiveTYpe: 'json',
-                url: `${process.env.REACT_APP_API_URL}${apiurl}`,
-                data: inputs,
-                headers: { Authorization: `Bearer ${localStorage.getItem("access_token")}` }
-            });
+            let res = await axios.post(apiurl, inputs)
+            console.log(res);
             navigate('/bank')
-        } 
-        catch(e){
+        }
+        catch (e) {
             console.log(e);
         }
     }
+
+
+   
   return (
     <AdminLayout>
         <div className="page-wrapper">

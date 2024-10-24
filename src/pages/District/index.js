@@ -1,25 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios from '../../components/axios';
 import AdminLayout from '../../layouts/AdminLayout';
 import { Link } from 'react-router-dom';
+
 function District(){
-    const[data, setData]=useState([]);
-    const config = {
-        headers: { Authorization: `Bearer ${localStorage.getItem("access_token")}` }
-    };
+    const [data, setData] = useState([]);
     useEffect(() => {
         getDatas();
     }, []);
 
-    function getDatas() {
-        axios.get(`${process.env.REACT_APP_API_URL}/district`,config).then(function(response) {
-            setData(response.data.data);
-        });
+    const getDatas = async (e) => {
+        let res = await axios.get(`/district`)
+        setData(res.data.data);
+
     }
-    const deleteData = (id) => {
-        axios.delete(`${process.env.REACT_APP_API_URL}/district/${id}`,config).then(function(response){
-            getDatas();
-        });
+    const deleteData = async (id) => {
+        let res = await axios.delete(`/district/${id}?_method=delete`)
+        getDatas();
     }
     return(
         <AdminLayout>
@@ -55,6 +52,7 @@ function District(){
                                             <tr>
                                                 <th>SL#</th>
                                                 <th>Name</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>

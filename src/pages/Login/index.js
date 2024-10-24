@@ -25,8 +25,8 @@ import { login } from '../../Api/AllApi';
         <div className="auth-wrapper d-flex no-block justify-content-center align-items-center bg-white">
         <div className="auth-box bg-white border-top border-secondary">
             <div id="loginform">
-                <div className="text-center p-t-20 p-b-20">
-                    <span className="db"><img src="./assets_admin/assets/images/logo.png" alt="logo" /></span>
+                <div className="text-center p-t-20 p-b-20" >
+                    <span className="db"><img src="./assets_admin/assets/images/bank (1).png" alt="logo" style={{height:"50px"}}></img></span>
                 </div>
                 
                 <form className="form-horizontal m-t-20" id="loginform" onSubmit={handleSubmit}>

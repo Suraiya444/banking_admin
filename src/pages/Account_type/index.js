@@ -91,7 +91,7 @@ function Account_type(){
                                                 <th>10000</th>
                                                 <th>10000</th>
                                                 <th>5</th>
-                                                <th>Action</th>
+                                                <th> </th>
                                             </tr>
                                             <tr>
                                                 <th>2</th>
@@ -102,7 +102,7 @@ function Account_type(){
                                                 <th>10000</th>
                                                 <th>0000</th>
                                                 <th>5</th>
-                                                <th>Action</th>
+                                                <th> </th>
                                             </tr>
                                         </tbody>
                                     </table>

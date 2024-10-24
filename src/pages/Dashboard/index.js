@@ -143,7 +143,7 @@ function Dashboard() {
                                           <div className="bg-dark p-10 text-white text-center">
                                               <i className="fa fa-user m-b-5 font-16"></i>
                                               <h5 className="m-b-0 m-t-5">2540</h5>
-                                              <small className="font-light">Total Users</small>
+                                              <small className="font-light">Total account</small>
                                           </div>
                                       </div>
                                         <div className="col-6">
@@ -156,29 +156,29 @@ function Dashboard() {
                                       <div className="col-6 m-t-15">
                                           <div className="bg-dark p-10 text-white text-center">
                                               <i className="fa fa-cart-plus m-b-5 font-16"></i>
-                                              <h5 className="m-b-0 m-t-5">656</h5>
-                                              <small className="font-light">Total Shop</small>
+                                              <h5 className="m-b-0 m-t-5">66</h5>
+                                              <small className="font-light">Total service s</small>
                                           </div>
                                       </div>
                                         <div className="col-6 m-t-15">
                                           <div className="bg-dark p-10 text-white text-center">
                                               <i className="fa fa-tag m-b-5 font-16"></i>
                                               <h5 className="m-b-0 m-t-5">9540</h5>
-                                              <small className="font-light">Total Orders</small>
+                                              <small className="font-light">Total  client</small>
                                           </div>
                                       </div>
                                       <div className="col-6 m-t-15">
                                           <div className="bg-dark p-10 text-white text-center">
                                               <i className="fa fa-table m-b-5 font-16"></i>
                                               <h5 className="m-b-0 m-t-5">100</h5>
-                                              <small className="font-light">Pending Orders</small>
+                                              <small className="font-light">  Loans</small>
                                           </div>
                                       </div>
                                       <div className="col-6 m-t-15">
                                           <div className="bg-dark p-10 text-white text-center">
                                               <i className="fa fa-globe m-b-5 font-16"></i>
                                               <h5 className="m-b-0 m-t-5">8540</h5>
-                                              <small className="font-light">Online Orders</small>
+                                              <small className="font-light">Online  Transaction</small>
                                           </div>
                                       </div>
                                   </div>

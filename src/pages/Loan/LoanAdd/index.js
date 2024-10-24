@@ -210,32 +210,23 @@ function Loan() {
                                         <table className="table table-bordered">
                                             <thead>
                                                 <tr>
-                                                    <th>Monthly Payment</th>
+                                                    <th>Interest Amount</th>
+                                                    <th>Installment</th>
                                                     <th>Principal</th>
-                                                    <th>Total Payment</th>
+                                                    
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
                                                     <td>{calculatedValues.monthlyPayment}</td>
-                                                    <td>{calculatedValues.totalPayment}</td>
                                                     <td>{calculatedValues.totalInterest}</td>
+                                                    <td>{calculatedValues.totalPayment}</td>
+                                                    
                                                 </tr>
                                             </tbody>
                                         </table>
 
-                                        {/* Loan Permission checkbox shown after calculation */}
-                                        <div className="form-group row mt-4">
-                                            <label className="col-sm-3 text-right control-label col-form-label">Loan Permission</label>
-                                            <div className="col-sm-9">
-                                                <input 
-                                                    type="checkbox" 
-                                                    name="loan_permission" 
-                                                    checked={inputs.loan_permission} 
-                                                    onChange={handleChange} 
-                                                /> Allow loan?
-                                            </div>
-                                        </div>
+                                         
                                     </div>
                                 )}
                             </div>
