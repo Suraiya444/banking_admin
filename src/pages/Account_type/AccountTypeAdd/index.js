@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios from '../../../components/axios';
 import AdminLayout from '../../../layouts/AdminLayout';
 import { useNavigate } from 'react-router-dom';
 import {useParams} from "react-router-dom";
 
 function Account_typeAdd() {
-    const [inputs, setInputs] = useState({id:'',name:'',loanable:'',loan_amount:'',min_balance:'',max_balance:'',max_withdrawal:'',yearly_interest:''});
+    const [inputs, setInputs] = useState({id:'',name:'',loanable:'',loan_amount:'',min_balance:'',max_balance:'',max_transfer:'',max_withdrawal:'',yearly_interest:''});
     const navigate=useNavigate();
     const {id} = useParams();
-    const config = {
-        headers: { Authorization: `Bearer ${localStorage.getItem("access_token")}` }
-    };
-    function getDatas(){
-        axios.get(`${process.env.REACT_APP_API_URL}/bank/${id}`,config).then(function(response) {
+    
+    const getDatas = async (e)=>{
+        let response = await axios.get(`/account_type/${id}`)
             setInputs(response.data.data);
-        });
+       
     }
    
     useEffect(() => {
@@ -31,29 +29,21 @@ function Account_typeAdd() {
 
     const handleSubmit = async(e) => {
         e.preventDefault();
-        //console.log(inputs)
+        console.log(inputs)
         
         try{
-            let apiurl='REACT_APP_API_URL';
-            let mtd='';
+            let apiurl='';
             if(inputs.id!=''){
-                mtd='put';
-                apiurl=`/account_type/${inputs.id}`;
+                  apiurl =`/account_type/${inputs.id}?_method=put`;
             }else{
-                mtd='post';
-                apiurl=`/account_type`;
+                apiurl=`/account_type `;
             }
             
-            let response= await axios({
-                method: mtd,
-                responsiveTYpe: 'json',
-                url: `${process.env.REACT_APP_API_URL}${apiurl}`,
-                data: inputs,
-                headers: { Authorization: `Bearer ${localStorage.getItem("access_token")}` }
-            });
+            let res = await axios.post(apiurl, inputs)
+            console.log(res);
             navigate('/account_type')
-        } 
-        catch(e){
+        }
+        catch (e) {
             console.log(e);
         }
     }
@@ -63,7 +53,7 @@ function Account_typeAdd() {
             <div className="page-breadcrumb">
                 <div className="row">
                     <div className="col-12 d-flex no-block align-items-center">
-                        <h4 className="page-title">Bank</h4>
+                        <h4 className="page-title">Account Type</h4>
                         <div className="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol className="breadcrumb">
@@ -102,19 +92,31 @@ function Account_typeAdd() {
                                         </div>
                                     </div>
                                     <div className="form-group row">
-                                        <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Maximum balance</label>
+                                        <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Minimum balance</label>
+                                        <div className="col-sm-9">
+                                            <input type="text" className="form-control" id="min_balance" name='min_balance' defaultValue={inputs.min_balance} onChange={handleChange}/>
+                                        </div>
+                                    </div>
+                                    <div className="form-group row">
+                                        <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Maximum Balance</label>
                                         <div className="col-sm-9">
                                             <input type="text" className="form-control" id="max_balance" name='max_balance' defaultValue={inputs.max_balance} onChange={handleChange}/>
                                         </div>
                                     </div>
                                     <div className="form-group row">
-                                        <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Maximum withdraw</label>
+                                        <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Max Transfer</label>
+                                        <div className="col-sm-9">
+                                            <input type="text" className="form-control" id="max_transfer" name='max_transfer' defaultValue={inputs.max_transfer} onChange={handleChange}/>
+                                        </div>
+                                    </div>
+                                    <div className="form-group row">
+                                        <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Max Withdraw</label>
                                         <div className="col-sm-9">
                                             <input type="text" className="form-control" id="max_withdrawal" name='max_withdrawal' defaultValue={inputs.max_withdrawal} onChange={handleChange}/>
                                         </div>
                                     </div>
                                     <div className="form-group row">
-                                        <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Yearly Interest</label>
+                                        <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Yearly INterest</label>
                                         <div className="col-sm-9">
                                             <input type="text" className="form-control" id="yearly_interest" name='yearly_interest' defaultValue={inputs.yearly_interest} onChange={handleChange}/>
                                         </div>
@@ -136,4 +138,4 @@ function Account_typeAdd() {
   )
 }
 
-export default Account_typeAdd
+export default Account_typeAdd;

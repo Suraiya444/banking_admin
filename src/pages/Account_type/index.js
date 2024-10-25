@@ -1,26 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios from '../../components/axios';
 import AdminLayout from '../../layouts/AdminLayout';
 import { Link } from 'react-router-dom';
 
 function Account_type(){
     const[data, setData]=useState([]);
-    const config = {
-        headers: { Authorization: `Bearer ${localStorage.getItem("access_token")}` }
-    };
+   
     useEffect(() => {
         getDatas();
     }, []);
 
-    function getDatas() {
-        axios.get(`${process.env.REACT_APP_API_URL}/account_type`,config).then(function(response) {
-            setData(response.data.data);
-        });
+    const getDatas = async (e) => {
+        let res = await axios.get(`/account_type`)
+        setData(res.data.data);
+
     }
-    const deleteData = (id) => {
-        axios.delete(`${process.env.REACT_APP_API_URL}/account_type/${id}`,config).then(function(response){
-            getDatas();
-        });
+
+    const deleteData = async (id) => {
+        let res = await axios.delete(`/account_type/${id}?_method=delete`)
+        getDatas(res);
     }
     return(
         <AdminLayout>
@@ -30,7 +28,7 @@ function Account_type(){
             <div className="page-breadcrumb">
                 <div className="row">
                     <div className="col-12 d-flex no-block align-items-center">
-                        <h4 className="page-title">Tables</h4>
+                        <h4 className="page-title">Account Type</h4>
                         <div className="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol className="breadcrumb">
@@ -66,7 +64,7 @@ function Account_type(){
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        {/* {data && data.map((d, key) =>
+                                         {data && data.map((d, key) =>
                                         <tr key={d.id}>
                                             <td className="text-bold-500">{key+1}</td>
                                             <td>{d.name}</td>
@@ -74,6 +72,7 @@ function Account_type(){
                                             <td>{d.loan_amount}</td>
                                             <td>{d.min_balance}</td>
                                             <td>{d.max_balance}</td>
+                                            <td>{d.max_transfer}</td>
                                             <td>{d.max_withdrawal}</td>
                                             <td>{d.yearly_interest}</td>
                                             <td>
@@ -81,29 +80,9 @@ function Account_type(){
                                                 <button type='button' onClick={() => deleteData(d.id)} className='btn btn-danger'>Delete</button>
                                             </td>
                                         </tr>
-                                    )} */}
-                                     <tr>
-                                                <th>1</th>
-                                                <th>Savings</th>
-                                                <th>10000</th>
-                                                <th>5000</th>
-                                                <th>1000</th>
-                                                <th>10000</th>
-                                                <th>10000</th>
-                                                <th>5</th>
-                                                <th> </th>
-                                            </tr>
-                                            <tr>
-                                                <th>2</th>
-                                                <th>Fixed</th>
-                                                <th>1000</th>
-                                                <th>5000</th>
-                                                <th>1000</th>
-                                                <th>10000</th>
-                                                <th>0000</th>
-                                                <th>5</th>
-                                                <th> </th>
-                                            </tr>
+                                    )} 
+                                     
+                                            
                                         </tbody>
                                     </table>
                                 </div>
