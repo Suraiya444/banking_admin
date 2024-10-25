@@ -4,36 +4,24 @@ import AdminLayout from '../../../layouts/AdminLayout';
 import { useNavigate } from 'react-router-dom';
 import {useParams} from "react-router-dom";
 
-function BankBranchAdd() {
-    const [inputs, setInputs] = useState({id:'',bank_id:'',district_id:'',name:'',routing:'',contact_no:'',email:'',address:''});
-    const [bank, setBank] = useState([]);
-    const [district, setDistrict] = useState([]);
-   
+function BankserviceAdd() {
+    const [inputs, setInputs] = useState({id:'',name:'',amount:'',contact_no:'' });
     const navigate=useNavigate();
     const {id} = useParams();
   
   
     const getDatas = async (e)=>{
-        let response = await axios.get(`/bank_branch/${id}`)
+        let response = await axios.get(`/bank_service/${id}`)
             setInputs(response.data.data);
-           
-       
+               
     }
 
-    const getBanks = async (e)=>{
-        let response = await axios.get(`/bank`)
-        setBank(response.data.data);
-        let res = await axios.get(`/district`)
-        setDistrict(res.data.data);
-       
-    }
-    
 
     useEffect(() => {
         if(id){
             getDatas();
         }
-        getBanks();
+        
     }, []);
 
     const handleChange = (event) => {
@@ -50,14 +38,14 @@ function BankBranchAdd() {
         try{
             let apiurl='';
             if(inputs.id!=''){
-                  apiurl =`/bank_branch/${inputs.id}?_method=put`;
+                  apiurl =`/bank_service/${inputs.id}?_method=put`;
             }else{
-                apiurl=`/bank_branch `;
+                apiurl=`/bank_service `;
             }
             
             let res = await axios.post(apiurl, inputs)
             console.log(res);
-            navigate('/bank_branch')
+            navigate('/bank_service')
         }
         catch (e) {
             console.log(e);
@@ -103,19 +91,7 @@ function BankBranchAdd() {
                                             }
                                         </div>
                                     </div>
-                                    <div className="form-group row">
-                                        <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">District</label>
-                                        <div className="col-sm-9">
-                                            {bank.length > 0 && 
-                                                <select className="form-control" id="district_id" name='district_id' defaultValue={inputs.district_id} onChange={handleChange}>
-                                                    <option value="">Select District</option>
-                                                    {district.map((d, key) =>
-                                                        <option value={d.id}>{d.name}</option>
-                                                    )}
-                                                </select>
-                                            }
-                                        </div>
-                                    </div>
+                                    
                                     <div className="form-group row">
                                         <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Branch Name</label>
                                         <div className="col-sm-9">
@@ -163,4 +139,4 @@ function BankBranchAdd() {
   )
 }
 
-export default BankBranchAdd;
+export default BankserviceAdd;

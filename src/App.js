@@ -146,6 +146,11 @@ function App() {
             <Account_typeAdd />
           </Protected>
         } />
+         <Route path={"/account_type/edit/:id"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <Account_typeAdd />
+          </Protected>
+        } />
          <Route path={"/account_type"} element={
           <Protected isSignedIn={isSignedIn} >
             <Account_type />

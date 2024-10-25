@@ -18,7 +18,7 @@ function Account_type(){
 
     const deleteData = async (id) => {
         let res = await axios.delete(`/account_type/${id}?_method=delete`)
-        getDatas(res);
+        getDatas();
     }
     return(
         <AdminLayout>
@@ -54,7 +54,7 @@ function Account_type(){
                                             <tr>
                                                 <th>SL#</th>
                                                 <th>Name</th>
-                                                <th>Loanable Amount</th>
+                                                <th>Loanable Account</th>
                                                 <th>Loan Amount</th>
                                                 <th>Minimum Balance</th>
                                                 <th>Maximum Balance</th>
@@ -77,7 +77,7 @@ function Account_type(){
                                             <td>{d.yearly_interest}</td>
                                             <td>
                                                 <Link to={`/account_type/edit/${d.id}`} className='btn btn-info' >Edit</Link>
-                                                <button type='button' onClick={() => deleteData(d.id)} className='btn btn-danger'>Delete</button>
+                                                <button type='button' onClick={() => deleteData (d.id)} className='btn btn-danger'>Delete</button>
                                             </td>
                                         </tr>
                                     )} 

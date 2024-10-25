@@ -72,23 +72,23 @@ function Account_typeAdd() {
                         <div className="card">
                             <form  className="form-horizontal" onSubmit={handleSubmit}>
                                 <div className="card-body">
-                                    <h4 className="card-title">account Type</h4>
+                                    <h4 className="card-title">Account Type</h4>
                                     <div className="form-group row">
-                                        <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Acount</label>
+                                        <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Account</label>
                                         <div className="col-sm-9">
                                             <input type="text" className="form-control" id="name" name='name' defaultValue={inputs.name} onChange={handleChange}/>
                                         </div>
                                     </div>
                                     <div className="form-group row">
-                                        <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Loanable Ammount</label>
+                                        <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Loanable Account</label>
                                         <div className="col-sm-9">
-                                            <input type="text" className="form-control" id="loanable" name='loanable' defaultValue={inputs.loanable} onChange={handleChange}/>
+                                            <input type="text" placeholder="Yes or No" className="form-control" id="loanable" name='loanable' defaultValue={inputs.loanable} onChange={handleChange}/>
                                         </div>
                                     </div>
                                     <div className="form-group row">
                                         <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Loan Amount</label>
                                         <div className="col-sm-9">
-                                            <input type="text" className="form-control" id="loan_amount" name='loan_amount' defaultValue={inputs.loan_amount} onChange={handleChange}/>
+                                            <input type="text" placeholder="in%" className="form-control" id="loan_amount" name='loan_amount' defaultValue={inputs.loan_amount} onChange={handleChange}/>
                                         </div>
                                     </div>
                                     <div className="form-group row">
@@ -116,7 +116,7 @@ function Account_typeAdd() {
                                         </div>
                                     </div>
                                     <div className="form-group row">
-                                        <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Yearly INterest</label>
+                                        <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Yearly Interest</label>
                                         <div className="col-sm-9">
                                             <input type="text" className="form-control" id="yearly_interest" name='yearly_interest' defaultValue={inputs.yearly_interest} onChange={handleChange}/>
                                         </div>
