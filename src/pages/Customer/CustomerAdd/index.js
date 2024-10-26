@@ -1,32 +1,34 @@
 import React,  { useEffect, useState } from 'react'
-import axios from 'axios';
+import axios from '../../../components/axios';
 import AdminLayout from '../../../layouts/AdminLayout';
 import { useNavigate } from 'react-router-dom';
 import {useParams} from "react-router-dom";
 
 function CustomerAdd() {
-    const [inputs, setInputs] = useState({id:'',bank_id:'',bank_branch_id:'',name:'',father_name:'',mother_name:'',contact_no:'',nid:'',email:'',per_address:'',pre_address:'',dob:'',gender:'',ref_id:'',education:'',balance:''});
+    const [inputs, setInputs] = useState({id:'',bank_id:'',bank_branch_id:'',name:'',father_name:'',mother_name:'',contact_no:'',nid:'',image:'',nid_image:'',nid_image_back:'',email:'',per_address:'',pre_address:'',dob:'',gender:'',ref_id:'',income:'',occupation:'',balance:''});
+
     const [bank, setBank] = useState([]);
-    const [bank_branch, setBank_branch] = useState([]);
+    const [ bank_branch, setBankBranch] = useState([]);
+
+    const [selectedfile, setSelectedFile] = useState([]);//for image 
+
     const navigate=useNavigate();
     const {id} = useParams();
-    const config = {
-        headers: { Authorization: `Bearer ${localStorage.getItem("access_token")}` }
-    };
-    function getDatas(){
-        axios.get(`${process.env.REACT_APP_API_URL}/customer/${id}`,config).then(function(response) {
-            setInputs(response.data.data);
-        });
+
+     
+    const getDatas = async (e) => {
+        let response = await axios.get(`/customer/${id}`);
+        setInputs(response.data.data);
     }
-    function getBanks(){
-        axios.get(`${process.env.REACT_APP_API_URL}/bank`,config).then(function(response) {
-            setBank(response.data.data);
-        });
-        axios.get(`${process.env.REACT_APP_API_URL}/bank_branch`,config).then(function(response) {
-            setBank_branch(response.data.data);
-        });
+
+    const getBanks = async (e)=>{
+        let response = await axios.get(`/bank`)
+        setBank(response.data.data);
+        let res = await axios.get(`/bank_branch`)
+        setBankBranch(res.data.data);
+       
     }
-   
+     
     useEffect(() => {
         if(id){
             getDatas();
@@ -40,31 +42,38 @@ function CustomerAdd() {
         setInputs(values => ({...values, [name]: value}));
     }
 
+     //for image 
+     const handelFile = (e) => {
+        setSelectedFile(e.target.files)
+    }
+
     const handleSubmit = async(e) => {
         e.preventDefault();
-        //console.log(inputs)
-        
+
+        //  console.log(inputs)
+        const formData = new FormData();
+
+        for (let i = 0; i < selectedfile.length; i++) {
+            formData.append('files[]', selectedfile[i])
+        }
+
+        for (const property in inputs) {
+            formData.append(property, inputs[property])
+        }
+          
         try{
             let apiurl='';
-            let mtd='';
             if(inputs.id!=''){
-                mtd='put';
-                apiurl=`/customer/${inputs.id}`;
+                  apiurl =`/customer/${inputs.id}?_method=put`;
             }else{
-                mtd='post';
-                apiurl=`/customer`;
+                apiurl=`/customer `;
             }
             
-            let response= await axios({
-                method: mtd,
-                responsiveTYpe: 'json',
-                url: `${process.env.REACT_APP_API_URL}${apiurl}`,
-                data: inputs,
-                headers: { Authorization: `Bearer ${localStorage.getItem("access_token")}` }
-            });
+            let res = await axios.post(apiurl, inputs)
+            console.log(res);
             navigate('/customer')
-        } 
-        catch(e){
+        }
+        catch (e) {
             console.log(e);
         }
     }
@@ -98,13 +107,13 @@ function CustomerAdd() {
                         <div className="card">
                             <form className="form-horizontal"onSubmit={handleSubmit}>
                                 <div className="card-body">
-                                    <h4 className="card-title">Customer +Info</h4>
+                                    <h4 className="card-title">Customer Info</h4>
                                     <div className="form-group row">
                                         <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Bank Name</label>
                                         <div className="col-sm-9">
                                             {bank.length > 0 && 
-                                                <select className="form-control" id="name" name='bank_id' defaultValue={inputs.bank_id} onChange={handleChange}>
-                                                    <option value="">Select Branch</option>
+                                                <select className="form-control" id="bank_id" name='bank_id' defaultValue={inputs.bank_id} onChange={handleChange}>
+                                                    <option value="">Select Bank</option>
                                                     {bank.map((d, key) =>
                                                         <option value={d.id}>{d.name}</option>
                                                     )}
@@ -116,8 +125,8 @@ function CustomerAdd() {
                                         <label for="lname" className="col-sm-3 text-right control-label col-form-label">Branch</label>
                                         <div className="col-sm-9">
                                        
-                                        {bank.length > 0 && 
-                                                <select className="form-control" id="bank_branch_id" name='bank_branch_id' defaultValue={inputs.bank_id} onChange={handleChange}>
+                                        {bank_branch.length > 0 && 
+                                                <select className="form-control" id="bank_branch_id" name='bank_branch_id' defaultValue={inputs.bank_branch_id} onChange={handleChange}>
                                                     <option value="">Select Branch</option>
                                                     {bank_branch.map((d, key) =>
                                                         <option value={d.id}>{d.name}</option>
@@ -157,6 +166,24 @@ function CustomerAdd() {
                                         </div>
                                     </div>
                                     <div className="form-group row">
+                                        <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Image</label>
+                                        <div className="col-sm-9">
+                                        <input type="file" id="email-id-vertical" className="form-control" multiple defaultValue={inputs.image} name="image" onChange={handelFile} placeholder="Image" />
+                                        </div>
+                                    </div>
+                                    <div className="form-group row">
+                                        <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Nid Image</label>
+                                        <div className="col-sm-9">
+                                        <input type="file" id="email-id-vertical" className="form-control" multiple defaultValue={inputs.nid_image} name="nid_image" onChange={handelFile} placeholder="Image" />
+                                        </div>
+                                    </div>
+                                    <div className="form-group row">
+                                        <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Nid Image Back Part</label>
+                                        <div className="col-sm-9">
+                                        <input type="file" id="email-id-vertical" className="form-control" multiple defaultValue={inputs.nid_image_back} name="nid_image_back" onChange={handelFile} placeholder="Image" />
+                                        </div>
+                                    </div>
+                                    <div className="form-group row">
                                         <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Email</label>
                                         <div className="col-sm-9">
                                             <input type="text" className="form-control" id="email" name='email' defaultValue={inputs.email} onChange={handleChange}/>
@@ -193,9 +220,15 @@ function CustomerAdd() {
                                         </div>
                                     </div>
                                     <div className="form-group row">
-                                        <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Education</label>
+                                        <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Income</label>
                                         <div className="col-sm-9">
-                                            <input type="text" className="form-control" id="education" name='education' defaultValue={inputs.education} onChange={handleChange}/>
+                                            <input type="text" className="form-control" id="income" name='income' defaultValue={inputs.income} onChange={handleChange}/>
+                                        </div>
+                                    </div>
+                                    <div className="form-group row">
+                                        <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Occupation</label>
+                                        <div className="col-sm-9">
+                                            <input type="text" className="form-control" id="occupation" name='occupation' defaultValue={inputs.occupation} onChange={handleChange}/>
                                         </div>
                                     </div>
                                     <div className="form-group row">

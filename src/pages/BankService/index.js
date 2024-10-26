@@ -10,11 +10,11 @@ function BankBranch(){
     }, []);
 
     const getDatas = async (e) => {
-        let res = await axios.get(`/bank_branch`)
+        let res = await axios.get(`/bank_service`)
         setData(res.data.data);
     }
     const deleteData = async (id) => {
-        let res = await axios.delete(`/bank_branch/${id}?_method=delete`)
+        let res = await axios.delete(`/bank_service/${id}?_method=delete`)
         getDatas();
     }
 
@@ -43,19 +43,15 @@ function BankBranch(){
                         <div className="card">
                             <div className="card-body">
                                 <h5 className="card-title">Bank</h5>
-                                <Link to={'/bank_branch/add'} className='btn btn-primary float-right' >Add New</Link>
+                                <Link to={'/bank_service/add'} className='btn btn-primary float-right' >Add New</Link>
                                 <div className="table-responsive">
                                     <table id="zero_config" className="table table-striped table-bordered">
                                         <thead>
                                             <tr>
                                                 <th><strong>#SL</strong></th>
-                                                <th><strong>Bank</strong></th>
-                                                <th><strong>District</strong></th>
-                                                <th><strong>Branch</strong></th>
-                                                <th><strong>Phone No</strong></th>
-                                                <th><strong>Routing No</strong></th>
-                                                <th><strong>Email</strong></th>
-                                                <th><strong>Address</strong></th> 
+                                                <th><strong>Services</strong></th>
+                                                <th><strong>Service Charge</strong></th>
+                                                <th><strong>Contact No</strong></th>
                                                 <th><strong>Action</strong></th>
                                             </tr>
                                         </thead>
@@ -63,15 +59,11 @@ function BankBranch(){
                                         {data && data.map((d, key) =>
                                         <tr key={d.id}>
                                             <td className="text-bold-500">{key+1}</td>
-                                            <td>{d.bank?.name}</td>
-                                            <td>{d.district?.name}</td>
                                             <td>{d.name}</td>
+                                            <td>{d.amount}</td>
                                             <td>{d.contact_no}</td>
-                                            <td>{d.routing}</td>
-                                            <td>{d.email}</td>
-                                            <td>{d.address}</td>
                                             <td>
-                                                <Link to={`/bank_branch/edit/${d.id}`} className='btn btn-info' >Edit</Link>
+                                                <Link to={`/bank_service/edit/${d.id}`} className='btn btn-info' >Edit</Link>
                                                 <button type='button' onClick={() => deleteData(d.id)} className='btn btn-danger'>Delete</button>
                                             </td>
                                         </tr>

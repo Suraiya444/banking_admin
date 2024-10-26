@@ -1,21 +1,28 @@
 import * as React from 'react';
 
 import Dashboard from './pages/Dashboard';
+
  import DistrictAdd from './pages/District/DistrictAdd';
  import District from './pages/District';
+
 import Customer from './pages/Customer';
  import CustomerAdd from './pages/Customer/CustomerAdd';
+
  import Deposit from './pages/Deposit';
  import DepositAdd from './pages/Deposit/CustomerAdd';
+
  import Transfer from './pages/Transfer';
  import TransferAdd from './pages/Transfer/TransferAdd';
+ 
  import Withdraw from './pages/Withdraw';
  import WithdrawAdd from './pages/Withdraw/WithdrawAdd';
+
  import Statement from './pages/Statement'; 
+ import StatementList from './pages/Statement/StatementList';
+
  import BankAdd from './pages/Bank/BankAdd';
  import Bank from './pages/Bank';
 
- 
  import Account_type from './pages/Account_type';
  import Account_typeAdd from './pages/Account_type/AccountTypeAdd';
 
@@ -24,9 +31,9 @@ import Customer from './pages/Customer';
 
  import Loan from './pages/Loan/LoanAdd';
 
- 
+ import BankserviceAdd from './pages/BankService/BankServiceAdd';
+ import BankService from './pages/BankService';
 
- import StatementList from './pages/Statement/StatementList';
  import Login from './pages/Login';
  import Register from './pages/Register';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -91,6 +98,22 @@ function App() {
             <BankBranchAdd />
           </Protected>
         } />
+         <Route path={"/bank_service"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <BankService/>
+          </Protected>
+        } />
+         <Route path={"/bank_service/add"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <BankserviceAdd />
+          </Protected>
+        } />
+       <Route path={"/bank_service/edit/:id"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <BankserviceAdd />
+          </Protected>
+        } />
+
        <Route path={"/customer"} element={
           <Protected isSignedIn={isSignedIn} >
             <Customer />

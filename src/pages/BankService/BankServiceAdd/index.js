@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import {useParams} from "react-router-dom";
 
 function BankserviceAdd() {
-    const [inputs, setInputs] = useState({id:'',name:'',amount:'',contact_no:'' });
+    const [inputs, setInputs] = useState({id:'',name:'',amount:'',contact_no:''});
     const navigate=useNavigate();
     const {id} = useParams();
   
@@ -58,12 +58,12 @@ function BankserviceAdd() {
             <div className="page-breadcrumb">
                 <div className="row">
                     <div className="col-12 d-flex no-block align-items-center">
-                        <h4 className="page-title">Bank Branch</h4>
+                        <h4 className="page-title">Bank Service</h4>
                         <div className="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol className="breadcrumb">
-                                    <li className="breadcrumb-item"><a href="#">Bank Branch</a></li>
-                                    <li className="breadcrumb-item active" aria-current="page">Bank</li>
+                                    <li className="breadcrumb-item"><a href="#">Bank Service</a></li>
+                                    <li className="breadcrumb-item active" aria-current="page">Bank Service</li>
                                 </ol>
                             </nav>
                         </div>
@@ -77,51 +77,26 @@ function BankserviceAdd() {
                         <div className="card">
                             <form className="form-horizontal" onSubmit={handleSubmit}>
                                 <div className="card-body">
-                                    <h4 className="card-title">Bank Branch</h4>
+                                    <h4 className="card-title">Bank Service</h4>                                   
                                     <div className="form-group row">
-                                        <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Bank Name</label>
-                                        <div className="col-sm-9">
-                                            {bank.length > 0 && 
-                                                <select className="form-control" id="name" name='bank_id' defaultValue={inputs.bank_id} onChange={handleChange}>
-                                                    <option value="">Select Branch</option>
-                                                    {bank.map((d, key) =>
-                                                        <option value={d.id}>{d.name}</option>
-                                                    )}
-                                                </select>
-                                            }
-                                        </div>
-                                    </div>
-                                    
-                                    <div className="form-group row">
-                                        <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Branch Name</label>
+                                        <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Service Name</label>
                                         <div className="col-sm-9">
                                             <input type="text" className="form-control" id="name" name='name' defaultValue={inputs.name} onChange={handleChange}/>
                                         </div>
                                     </div>
                                     <div className="form-group row">
-                                        <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Bank Contact Number</label>
+                                        <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Service Charge</label>
                                         <div className="col-sm-9">
-                                            <input type="text" className="form-control" id="contact_no" name='contact_no' defaultValue={inputs.contact_no} onChange={handleChange}/>
+                                            <input type="text" className="amount" id="amount" name='amount' defaultValue={inputs.amount} onChange={handleChange}/>
                                         </div>
                                     </div>
                                     <div className="form-group row">
-                                        <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Bank Routing Number</label>
+                                        <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Contact Number</label>
                                         <div className="col-sm-9">
-                                            <input type="text" className="form-control" id="routing" name='routing' defaultValue={inputs.routing} onChange={handleChange}/>
-                                        </div>
+                                            <input type="text" className="contact_no" id="contact_no" name='contact_no' defaultValue={inputs.contact_no} onChange={handleChange}/>
+                                        </div> 
                                     </div>
-                                    <div className="form-group row">
-                                        <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Bank Email Address</label>
-                                        <div className="col-sm-9">
-                                            <input type="text" className="form-control" id="email" name='email' defaultValue={inputs.email} onChange={handleChange}/>
-                                        </div>
-                                    </div>
-                                    <div className="form-group row">
-                                        <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Bank Address</label>
-                                        <div className="col-sm-9">
-                                            <input type="text" className="form-control" id="address" name='address' defaultValue={inputs.address} onChange={handleChange}/>
-                                        </div>
-                                    </div>
+                                    
                                 </div>
                                 <div className="border-top">
                                     <div className="card-body">
