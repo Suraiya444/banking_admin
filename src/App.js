@@ -34,6 +34,12 @@ import Customer from './pages/Customer';
  import BankserviceAdd from './pages/BankService/BankServiceAdd';
  import BankService from './pages/BankService';
 
+ import CustomerAccount from './pages/CustomerAccount';
+ import CustomerAccountAdd from './pages/CustomerAccount/CustomerAccountAdd';
+
+ import CustomerService from './pages/CustomerService';
+ import CustomerserviceAdd from './pages/CustomerService/CustomerServiceAdd';
+
  import Login from './pages/Login';
  import Register from './pages/Register';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -164,6 +170,11 @@ function App() {
             <StatementList />
           </Protected>
         } />
+        <Route path={"/account_type"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <Account_type />
+          </Protected>
+        } />
          <Route path={"/account_type/add"} element={
           <Protected isSignedIn={isSignedIn} >
             <Account_typeAdd />
@@ -174,9 +185,35 @@ function App() {
             <Account_typeAdd />
           </Protected>
         } />
-         <Route path={"/account_type"} element={
+          <Route path={"/customer_account"} element={
           <Protected isSignedIn={isSignedIn} >
-            <Account_type />
+            <CustomerAccount />
+          </Protected>
+        } />
+         <Route path={"/customer_account/add"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <CustomerAccountAdd />
+          </Protected>
+        } />
+         <Route path={"/customer_account/edit/:id"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <CustomerAccountAdd />
+          </Protected>
+        } />
+        
+        <Route path={"/customer_service"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <CustomerService />
+          </Protected>
+        } />
+         <Route path={"/customer_service/add"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <CustomerserviceAdd />
+          </Protected>
+        } />
+         <Route path={"/customer_service/edit/:id"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <CustomerserviceAdd />
           </Protected>
         } />
          <Route path={"/loan/add"} element={
