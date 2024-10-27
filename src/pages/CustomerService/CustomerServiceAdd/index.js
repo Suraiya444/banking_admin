@@ -92,7 +92,7 @@ function CustomerserviceAdd() {
                                         <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Customer Name</label>
                                         <div className="col-sm-9">
                                             {customer.length > 0 && 
-                                                <select className="form-control" id="name" name='bank_id' defaultValue={inputs.bank_id} onChange={handleChange}>
+                                                <select className="form-control" id="customer_id" name='customer_id' defaultValue={inputs.customer_id} onChange={handleChange}>
                                                     <option value="">Select Customer</option>
                                                     {customer.map((d, key) =>
                                                         <option value={d.id}>{d.name}</option>
@@ -105,7 +105,7 @@ function CustomerserviceAdd() {
                                         <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Bank Service Name</label>
                                         <div className="col-sm-9">
                                             {bank_service.length > 0 && 
-                                                <select className="form-control" id="name" name='bank_id' defaultValue={inputs.bank_id} onChange={handleChange}>
+                                                <select className="form-control" id="bank_service_id" name='bank_service_id' defaultValue={inputs.bank_service_id} onChange={handleChange}>
                                                     <option value="">Select Service</option>
                                                     {bank_service.map((d, key) =>
                                                         <option value={d.id}>{d.name}</option>

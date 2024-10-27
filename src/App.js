@@ -130,6 +130,11 @@ function App() {
             <CustomerAdd />
           </Protected>
         } />
+         <Route path={"/customer/edit/:id"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <CustomerAdd />
+          </Protected>
+        } />
         <Route path={"/deposit"} element={
           <Protected isSignedIn={isSignedIn} >
             <Deposit />

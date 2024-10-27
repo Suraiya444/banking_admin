@@ -59,8 +59,10 @@ function Customer(){
                                                 <th><strong>Mother Name</strong></th>
                                                 <th><strong>Contact</strong></th>
                                                 <th><strong>Nid</strong></th> 
+                                                <th><strong>Image</strong></th> 
                                                 <th><strong>Nid Photo</strong></th>
                                                 <th><strong>Nid Photo Back</strong></th>
+                                                <th><strong>Email</strong></th>
                                                 <th><strong>Permanent Address</strong></th>
                                                 <th><strong>Present Address</strong></th>
                                                 <th><strong>Date Of Birth</strong></th>
@@ -69,6 +71,7 @@ function Customer(){
                                                 <th><strong>Income</strong></th>
                                                 <th><strong>Profession</strong></th>
                                                 <th><strong>Balance</strong></th>
+                                                <th><strong>Action</strong></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -83,17 +86,17 @@ function Customer(){
                                             <td>{d.contact_no}</td>
                                             <td>{d.nid}</td>
                                             <td>{
-                                                    d.image?.split(',').map((src, i) => (
+                                                    d?.image?.split(',').map((src, i) => (
                                                         <img src={`${process.env.REACT_APP_BACKEND_URL}/customer/${src}`} alt="customer" style={{ width:"50px", height:'50px', padding:'0px' }}/>
                                                     ))
                                                 }</td>
                                             <td>{
-                                                    d.nid_image?.split(',').map((src, i) => (
+                                                    d?.nid_image?.split(',').map((src, i) => (
                                                         <img src={`${process.env.REACT_APP_BACKEND_URL}/customer/${src}`} alt="customer" style={{ width:"50px", height:'50px', padding:'0px' }}/>
                                                     ))
                                                 }</td>
                                             <td>{
-                                                    d.nid_image_back?.split(',').map((src, i) => (
+                                                    d?.nid_image_back?.split(',').map((src, i) => (
                                                         <img src={`${process.env.REACT_APP_BACKEND_URL}/customer/${src}`} alt="customer" style={{ width:"50px", height:'50px', padding:'0px' }}/>
                                                     ))
                                                 }</td>
