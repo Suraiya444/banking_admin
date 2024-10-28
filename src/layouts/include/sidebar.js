@@ -33,6 +33,42 @@ const isLinkActive = (path)=>{
                           <li className="sidebar-item"><a href="form-wizard.html" className="sidebar-link"><i className="mdi mdi-note-plus" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}> Form Wizard </span></a></li>
                       </ul>
                   </li>
+                  <li className="sidebar-item"> <a className="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i className="mdi mdi-receipt" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}><Link to="/bank">Bank</Link> </span></a>
+                      <ul aria-expanded="false" className="collapse  first-level">
+                          <li className="sidebar-item"><a href="form-basic.html" className="sidebar-link"><i className="mdi mdi-note-outline" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}> Form Basic </span></a></li>
+                          <li className="sidebar-item"><a href="form-wizard.html" className="sidebar-link"><i className="mdi mdi-note-plus" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}> Form Wizard </span></a></li>
+                      </ul>
+                  </li>
+                  <li className="sidebar-item"> <a className="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i className="mdi mdi-receipt" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}><Link to="/bank">Bank</Link> </span></a>
+                      <ul aria-expanded="false" className="collapse  first-level">
+                          <li className="sidebar-item"><a href="form-basic.html" className="sidebar-link"><i className="mdi mdi-note-outline" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}> Form Basic </span></a></li>
+                          <li className="sidebar-item"><a href="form-wizard.html" className="sidebar-link"><i className="mdi mdi-note-plus" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}> Form Wizard </span></a></li>
+                      </ul>
+                  </li>
+                  <li className="sidebar-item"> <a className="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i className="mdi mdi-receipt" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}><Link to="/bank">Bank</Link> </span></a>
+                      <ul aria-expanded="false" className="collapse  first-level">
+                          <li className="sidebar-item"><a href="form-basic.html" className="sidebar-link"><i className="mdi mdi-note-outline" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}> Form Basic </span></a></li>
+                          <li className="sidebar-item"><a href="form-wizard.html" className="sidebar-link"><i className="mdi mdi-note-plus" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}> Form Wizard </span></a></li>
+                      </ul>
+                  </li>
+                  <li className="sidebar-item"> <a className="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i className="mdi mdi-receipt" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}><Link to="/bank">Bank</Link> </span></a>
+                      <ul aria-expanded="false" className="collapse  first-level">
+                          <li className="sidebar-item"><a href="form-basic.html" className="sidebar-link"><i className="mdi mdi-note-outline" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}> Form Basic </span></a></li>
+                          <li className="sidebar-item"><a href="form-wizard.html" className="sidebar-link"><i className="mdi mdi-note-plus" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}> Form Wizard </span></a></li>
+                      </ul>
+                  </li>
+                  <li className="sidebar-item"> <a className="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i className="mdi mdi-receipt" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}><Link to="/bank">Bank</Link> </span></a>
+                      <ul aria-expanded="false" className="collapse  first-level">
+                          <li className="sidebar-item"><a href="form-basic.html" className="sidebar-link"><i className="mdi mdi-note-outline" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}> Form Basic </span></a></li>
+                          <li className="sidebar-item"><a href="form-wizard.html" className="sidebar-link"><i className="mdi mdi-note-plus" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}> Form Wizard </span></a></li>
+                      </ul>
+                  </li>
+                  <li className="sidebar-item"> <a className="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i className="mdi mdi-receipt" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}><Link to="/bank">Bank</Link> </span></a>
+                      <ul aria-expanded="false" className="collapse  first-level">
+                          <li className="sidebar-item"><a href="form-basic.html" className="sidebar-link"><i className="mdi mdi-note-outline" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}> Form Basic </span></a></li>
+                          <li className="sidebar-item"><a href="form-wizard.html" className="sidebar-link"><i className="mdi mdi-note-plus" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}> Form Wizard </span></a></li>
+                      </ul>
+                  </li>
                   <li className="sidebar-item"> <a className="sidebar-link waves-effect waves-dark sidebar-link" href="pages-buttons.html" aria-expanded="false"><i className="mdi mdi-relative-scale" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}><Link to="/bank_branch">bank Branch</Link> </span></a></li>
                   <li className="sidebar-item"> <a className="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i className="mdi mdi-face" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}><Link to="/district">District</Link>  </span></a>
                       <ul aria-expanded="false" className="collapse  first-level">
@@ -54,6 +90,7 @@ const isLinkActive = (path)=>{
                           <li className="sidebar-item"><a href="authentication-register.html" className="sidebar-link"><i className="mdi mdi-all-inclusive" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}> Register </span></a></li>
                       </ul>
                   </li>
+                  
                   <li className="sidebar-item"> <a className="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i className="mdi mdi-account-key" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}><Link to="/statement/list">Statement</Link></span></a>
                       <ul aria-expanded="false" className="collapse  first-level">
                           <li className="sidebar-item"><a href="authentication-login.html" className="sidebar-link"><i className="mdi mdi-all-inclusive" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}> Login </span></a></li>
