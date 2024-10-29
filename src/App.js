@@ -28,8 +28,8 @@ import Customer from './pages/Customer';
 
  import BankBranchAdd from './pages/BankBranch/BankBranchAdd';
  import BankBranch from './pages/BankBranch';
-
- import Loan from './pages/Loan/LoanAdd';
+import Loan from './pages/Loan';
+import LoanAdd from './pages/Loan/LoanAdd';
 
  import BankserviceAdd from './pages/BankService/BankServiceAdd';
  import BankService from './pages/BankService';
@@ -45,6 +45,12 @@ import Customer from './pages/Customer';
 
  import LoanType from './pages/LoanType';
  import LoanTypeAdd from './pages/LoanType/LoanTypeAdd';
+
+ import CustomerType from './pages/CustomerType';
+ import CustomerTypeAdd from './pages/CustomerType/CustomerTypeAdd';
+
+ import LoanPayment from './pages/LoanPayment';
+ import LoanPaymentAdd from './pages/LoanPayment/LoanPaymentAdd';
 
  import Login from './pages/Login';
  import Register from './pages/Register';
@@ -261,9 +267,52 @@ function App() {
         } />
          <Route path={"/loan/add"} element={
           <Protected isSignedIn={isSignedIn} >
+            <LoanAdd />
+          </Protected>
+        } />
+         <Route path={"/loan/edit/:id"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <LoanAdd />
+          </Protected>
+        } />
+         <Route path={"/loan"} element={
+          <Protected isSignedIn={isSignedIn} >
             <Loan />
           </Protected>
         } />
+
+       <Route path={"/customer_type/add"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <CustomerTypeAdd />
+          </Protected>
+        } />
+         <Route path={"/customer_type/edit/:id"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <CustomerTypeAdd />
+          </Protected>
+        } />
+         <Route path={"/customer_type"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <CustomerType />
+          </Protected>
+        } />
+
+        <Route path={"/loan_payment/add"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <LoanPaymentAdd />
+          </Protected>
+        } />
+         <Route path={"/loan_payment/edit/:id"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <LoanPaymentAdd />
+          </Protected>
+        } />
+         <Route path={"/loan_payment"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <LoanPayment />
+          </Protected>
+        } />
+        
         
       
       </Routes>

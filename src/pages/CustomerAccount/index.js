@@ -49,13 +49,16 @@ function CustomerAccount(){
                                         <thead>
                                             <tr>
                                                 <th><strong>#SL</strong></th>
-                                                <th><strong>Bank</strong></th>
-                                                <th><strong>District</strong></th>
-                                                <th><strong>Branch</strong></th>
-                                                <th><strong>Phone No</strong></th>
-                                                <th><strong>Routing No</strong></th>
-                                                <th><strong>Email</strong></th>
-                                                <th><strong>Address</strong></th> 
+                                                <th><strong>Customer Name</strong></th>
+                                                <th><strong>Account Type</strong></th>
+                                                <th><strong>Initial Amount</strong></th>
+                                                <th><strong>Max Balance</strong></th>
+                                                <th><strong>Max transfer</strong></th>
+                                                <th><strong>max Withdraw</strong></th>
+                                                <th><strong>Yearly Interest</strong></th> 
+                                                <th><strong>Opening Date</strong></th> 
+                                                <th><strong>Closing Date</strong></th> 
+                                                <th><strong>Status</strong></th> 
                                                 <th><strong>Action</strong></th>
                                             </tr>
                                         </thead>
