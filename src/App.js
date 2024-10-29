@@ -43,6 +43,9 @@ import Customer from './pages/Customer';
  import Beneficiary from './pages/Banificiary';
  import BanificiaryAdd from './pages/Banificiary/BanificiaryAdd';
 
+ import LoanType from './pages/LoanType';
+ import LoanTypeAdd from './pages/LoanType/LoanTypeAdd';
+
  import Login from './pages/Login';
  import Register from './pages/Register';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -238,6 +241,22 @@ function App() {
          <Route path={"/beneficiary/edit/:id"} element={
           <Protected isSignedIn={isSignedIn} >
             <BanificiaryAdd />
+          </Protected>
+        } />
+
+       <Route path={"/loan_type"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <LoanType />
+          </Protected>
+        } />
+         <Route path={"/loan_type/add"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <LoanTypeAdd />
+          </Protected>
+        } />
+         <Route path={"/loan_type/edit/:id"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <LoanTypeAdd />
           </Protected>
         } />
          <Route path={"/loan/add"} element={

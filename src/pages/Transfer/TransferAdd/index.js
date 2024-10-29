@@ -108,7 +108,7 @@ function TransferAdd() {
                                         </div>
                                     </div>
                                     <div className="form-group row">
-                                        <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Bank Name</label>
+                                        <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Account No</label>
                                         <div className="col-sm-9">
                                             {customer_account.length > 0 && 
                                                 <select className="form-control" id="customer_account_id" name='customer_account_id' defaultValue={inputs.customer_account_id} onChange={handleChange}>
