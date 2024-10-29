@@ -40,6 +40,9 @@ import Customer from './pages/Customer';
  import CustomerService from './pages/CustomerService';
  import CustomerserviceAdd from './pages/CustomerService/CustomerServiceAdd';
 
+ import Beneficiary from './pages/Banificiary';
+ import BanificiaryAdd from './pages/Banificiary/BanificiaryAdd';
+
  import Login from './pages/Login';
  import Register from './pages/Register';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -219,6 +222,22 @@ function App() {
          <Route path={"/customer_service/edit/:id"} element={
           <Protected isSignedIn={isSignedIn} >
             <CustomerserviceAdd />
+          </Protected>
+        } />
+
+        <Route path={"/beneficiary"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <Beneficiary />
+          </Protected>
+        } />
+         <Route path={"/beneficiary/add"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <BanificiaryAdd />
+          </Protected>
+        } />
+         <Route path={"/beneficiary/edit/:id"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <BanificiaryAdd />
           </Protected>
         } />
          <Route path={"/loan/add"} element={

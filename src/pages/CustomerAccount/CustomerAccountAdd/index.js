@@ -70,7 +70,7 @@ function CustomerAccountAdd() {
             <div className="page-breadcrumb">
                 <div className="row">
                     <div className="col-12 d-flex no-block align-items-center">
-                        <h4 className="page-title">Customer Account</h4>
+                        <h4 className="page-title">Customer Account Opening</h4>
                         <div className="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol className="breadcrumb">
@@ -89,7 +89,7 @@ function CustomerAccountAdd() {
                         <div className="card">
                             <form className="form-horizontal" onSubmit={handleSubmit}>
                                 <div className="card-body">
-                                    <h4 className="card-title">Customer</h4>
+                                    <h4 className="card-title">Account Opening</h4>
                                     <div className="form-group row">
                                         <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Customer Name</label>
                                         <div className="col-sm-9">
