@@ -52,6 +52,9 @@ import LoanAdd from './pages/Loan/LoanAdd';
  import LoanPayment from './pages/LoanPayment';
  import LoanPaymentAdd from './pages/LoanPayment/LoanPaymentAdd';
 
+ import PaymentType from './pages/PaymentType';
+ import PaymentTypeAdd from './pages/PaymentType/PaymentTypeAdd';
+
  import Login from './pages/Login';
  import Register from './pages/Register';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -310,6 +313,23 @@ function App() {
          <Route path={"/loan_payment"} element={
           <Protected isSignedIn={isSignedIn} >
             <LoanPayment />
+          </Protected>
+        } />
+        
+
+        <Route path={"/payment_type/add"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <PaymentTypeAdd />
+          </Protected>
+        } />
+         <Route path={"/payment_type/edit/:id"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <PaymentTypeAdd />
+          </Protected>
+        } />
+         <Route path={"/payment_type"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <PaymentType />
           </Protected>
         } />
         
