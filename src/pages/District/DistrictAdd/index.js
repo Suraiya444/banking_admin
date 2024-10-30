@@ -3,6 +3,7 @@ import axios from '../../../components/axios';
 import AdminLayout from '../../../layouts/AdminLayout';
 import { useNavigate } from 'react-router-dom';
 import {useParams} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 function DistrictAdd() {
     const [inputs, setInputs] = useState({id :'',name:''});
@@ -110,7 +111,7 @@ function DistrictAdd() {
                         <div className="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol className="breadcrumb">
-                                    <li className="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li className="breadcrumb-item"><Link to={'/district'} className='btn btn-primary float-right' >District List</Link></li>
                                     <li className="breadcrumb-item active" aria-current="page">Dstrict</li>
                                 </ol>
                             </nav>

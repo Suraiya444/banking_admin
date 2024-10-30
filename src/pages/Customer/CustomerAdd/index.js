@@ -3,6 +3,7 @@ import axios from '../../../components/axios';
 import AdminLayout from '../../../layouts/AdminLayout';
 import { useNavigate } from 'react-router-dom';
 import {useParams} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 function CustomerAdd() {
     const [inputs, setInputs] = useState({id:'',bank_id:'',bank_branch_id:'',name:'',father_name:'',mother_name:'',contact_no:'',nid:'',image:'',nid_image:'',nid_image_back:'',email:'',per_address:'',pre_address:'',dob:'',gender:'',ref_id:'',income:'',occupation:'',balance:''});
@@ -91,7 +92,7 @@ function CustomerAdd() {
                         <div className="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol className="breadcrumb">
-                                    <li className="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li className="breadcrumb-item"><Link to={'/customer'} className='btn btn-primary float-right' >Customer List</Link></li>
                                     <li className="breadcrumb-item active" aria-current="page">Customer</li>
                                 </ol>
                             </nav>
@@ -108,7 +109,7 @@ function CustomerAdd() {
                             <form className="form-horizontal"onSubmit={handleSubmit}>
                                 <div className="card-body">
                                     <h4 className="card-title">Customer Info</h4>
-                                    <div className="form-group row">
+                                    {/* <div className="form-group row">
                                         <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Bank Name</label>
                                         <div className="col-sm-9">
                                             {bank.length > 0 && 
@@ -134,7 +135,7 @@ function CustomerAdd() {
                                                 </select>
                                             }
                                         </div>
-                                    </div>
+                                    </div> */}
                                     <div className="form-group row">
                                         <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Name</label>
                                         <div className="col-sm-9">

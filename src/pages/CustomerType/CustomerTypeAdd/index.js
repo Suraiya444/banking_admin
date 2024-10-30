@@ -3,6 +3,7 @@ import axios from '../../../components/axios';
 import AdminLayout from '../../../layouts/AdminLayout';
 import { useNavigate } from 'react-router-dom';
 import {useParams} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 function CustomerTypeAdd() {
     const [inputs, setInputs] = useState({id:'',customer_id:'',customer_account_id:'',account_type_id:'',name:''});
@@ -77,7 +78,7 @@ function CustomerTypeAdd() {
                         <div className="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol className="breadcrumb">
-                                    <li className="breadcrumb-item"><a href="#">Customer Type</a></li>
+                                    <li className="breadcrumb-item"><Link to={'/customer_type'} className='btn btn-primary float-right' >Customer Type List</Link></li>
                                     <li className="breadcrumb-item active" aria-current="page">Bank</li>
                                 </ol>
                             </nav>
@@ -124,9 +125,9 @@ function CustomerTypeAdd() {
                                         <div className="col-sm-9">
                                             {account_type.length > 0 && 
                                                 <select className="form-control" id="account_type_id" name='account_type_id' defaultValue={inputs.account_type_id} onChange={handleChange}>
-                                                    <option value="">Select Account No</option>
+                                                    <option value="">Select Account Type</option>
                                                     {account_type.map((d, key) =>
-                                                        <option value={d.id}>{d.account_no}</option>
+                                                        <option value={d.id}>{d.name}</option>
                                                     )}
                                                 </select>
                                             }

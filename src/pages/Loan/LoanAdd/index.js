@@ -3,6 +3,7 @@ import axios from '../../../components/axios';
 import AdminLayout from '../../../layouts/AdminLayout';
 import { useNavigate } from 'react-router-dom';
 import {useParams} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 function LoanAdd() {
     const [inputs, setInputs] = useState({id:'',loan_type_id:'',customer_id:'',customer_type_id:'',customer_account_id:'',start_date:'',term_length:'',interest_rate:'',principal_amount:'',amount_with_interest:'',fine:'',total_paid:''});
@@ -79,7 +80,7 @@ function LoanAdd() {
                         <div className="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol className="breadcrumb">
-                                    <li className="breadcrumb-item"><a href="#">Loan</a></li>
+                                    <li className="breadcrumb-item"><Link to={'/loan'} className='btn btn-primary float-right' >Loan List</Link></li>
                                     <li className="breadcrumb-item active" aria-current="page">Loan</li>
                                 </ol>
                             </nav>

@@ -3,6 +3,7 @@ import axios from '../../../components/axios';
 import AdminLayout from '../../../layouts/AdminLayout';
 import { useNavigate } from 'react-router-dom';
 import {useParams} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 function CustomerserviceAdd() {
     const [inputs, setInputs] = useState({id:'',customer_id:'',bank_service_id:'',status:'',active_date:''});
@@ -72,7 +73,7 @@ function CustomerserviceAdd() {
                         <div className="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol className="breadcrumb">
-                                    <li className="breadcrumb-item"><a href="#">Customer Service</a></li>
+                                    <li className="breadcrumb-item"><Link to={'/customer_service'} className='btn btn-primary float-right' >Customer service List</Link></li>
                                     <li className="breadcrumb-item active" aria-current="page">Customer Service</li>
                                 </ol>
                             </nav>

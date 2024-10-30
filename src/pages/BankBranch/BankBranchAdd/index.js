@@ -3,6 +3,7 @@ import axios from '../../../components/axios';
 import AdminLayout from '../../../layouts/AdminLayout';
 import { useNavigate } from 'react-router-dom';
 import {useParams} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 function BankBranchAdd() {
     const [inputs, setInputs] = useState({id:'',bank_id:'',district_id:'',name:'',routing:'',contact_no:'',email:'',address:''});
@@ -74,7 +75,7 @@ function BankBranchAdd() {
                         <div className="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol className="breadcrumb">
-                                    <li className="breadcrumb-item"><a href="#">Bank Branch</a></li>
+                                    <li className="breadcrumb-item"><Link to={'/bank_branch'} className='btn btn-primary float-right' >Bank Branch List</Link></li>
                                     <li className="breadcrumb-item active" aria-current="page">Bank</li>
                                 </ol>
                             </nav>

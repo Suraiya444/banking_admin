@@ -3,6 +3,7 @@ import axios from '../../../components/axios';
 import AdminLayout from '../../../layouts/AdminLayout';
 import { useNavigate } from 'react-router-dom';
 import {useParams} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 function TransferAdd() {
     const [inputs, setInputs] = useState({id:'',customer_id:'',customer_account_id:'',beneficiary_id:'',transfer_date:'',amount:'',status:'',address:''});
@@ -78,7 +79,7 @@ function TransferAdd() {
                         <div className="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol className="breadcrumb">
-                                    <li className="breadcrumb-item"><a href="#">Fund Transfer</a></li>
+                                    <li className="breadcrumb-item"><Link to={'/transfer'} className='btn btn-primary float-right' >Fund Transfer List</Link></li>
                                     <li className="breadcrumb-item active" aria-current="page">Fund Transfer</li>
                                 </ol>
                             </nav>

@@ -3,6 +3,7 @@ import axios from '../../../components/axios';
 import AdminLayout from '../../../layouts/AdminLayout';
 import { useNavigate } from 'react-router-dom';
 import {useParams} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 function CustomerAccountAdd() {
     const [inputs, setInputs] = useState({id:'',customer_id:'',account_type_id:'',account_no:'',initial_amount:'',max_balance:'',max_transfer:'',max_withdrawal:'',yearly_interest:'',account_open_date:'',account_close_date:'',status:''});
@@ -74,7 +75,7 @@ function CustomerAccountAdd() {
                         <div className="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol className="breadcrumb">
-                                    <li className="breadcrumb-item"><a href="#">Bank Branch</a></li>
+                                    <li className="breadcrumb-item"><Link to={'/customer_account'} className='btn btn-primary float-right' > Customer Account   List</Link></li>
                                     <li className="breadcrumb-item active" aria-current="page">Bank</li>
                                 </ol>
                             </nav>

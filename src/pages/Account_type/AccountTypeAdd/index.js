@@ -3,6 +3,7 @@ import axios from '../../../components/axios';
 import AdminLayout from '../../../layouts/AdminLayout';
 import { useNavigate } from 'react-router-dom';
 import {useParams} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 function Account_typeAdd() {
     const [inputs, setInputs] = useState({id:'',name:'',loanable:'',loan_amount:'',min_balance:'',max_balance:'',max_transfer:'',max_withdrawal:'',yearly_interest:''});
@@ -57,7 +58,7 @@ function Account_typeAdd() {
                         <div className="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol className="breadcrumb">
-                                    <li className="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li className="breadcrumb-item"><Link to={'/account_type'} className='btn btn-primary float-right' >Account Type List</Link></li>
                                     <li className="breadcrumb-item active" aria-current="page">Bank</li>
                                 </ol>
                             </nav>

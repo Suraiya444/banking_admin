@@ -3,6 +3,7 @@ import axios from '../../../components/axios';
 import AdminLayout from '../../../layouts/AdminLayout';
 import { useNavigate } from 'react-router-dom';
 import {useParams} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 function BanificiaryAdd() {
     const [inputs, setInputs] = useState ({id:'',name:'',account_type_id:'',account_no:'',status:'',active_date:''});
@@ -69,7 +70,7 @@ function BanificiaryAdd() {
                         <div className="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol className="breadcrumb">
-                                    <li className="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li className="breadcrumb-item"><Link to={'/beneficiary'} className='btn btn-primary float-right' >Beneficiary List</Link></li>
                                     <li className="breadcrumb-item active" aria-current="page">Banifciary</li>
                                 </ol>
                             </nav>
