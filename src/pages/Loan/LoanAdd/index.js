@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from '../../../components/axios';
+import axios from 'axios';
 import AdminLayout from '../../../layouts/AdminLayout';
 import { useNavigate } from 'react-router-dom';
 import {useParams} from "react-router-dom";
@@ -14,25 +14,30 @@ function LoanAdd() {
 
     const navigate=useNavigate();
     const {id} = useParams();
+    const config = {
+        headers: { Authorization: `Bearer ${localStorage.getItem("access_token")}` }
+    };
   
-  
-    const getDatas = async (e)=>{
-        let response = await axios.get(`/loan/${id}`)
+    function getDatas(){
+        axios.get(`${process.env.REACT_APP_API_URL}/loan/${id}`,config).then(function(response) {
             setInputs(response.data.data);
+        });
                
     }
 
-    const getBanks = async (e)=>{
-        let response = await axios.get(`/loan_type`)
-        setLoanType(response.data.data);
-        let res = await axios.get(`/customer`)
-        setCustomer(res.data.data);
-
-        let respo = await axios.get(`/customer_type`)
-        setCustomerType(respo.data.data);
-        let respon = await axios.get(`/customer_account`)
-        setCustomerAccount(respon.data.data);
-       
+    function getBanks(){
+        axios.get(`${process.env.REACT_APP_API_URL}/loan_type`,config).then(function(response) {
+            setLoanType(response.data.data);
+        });
+        axios.get(`${process.env.REACT_APP_API_URL}/customer`,config).then(function(response) {
+            setCustomer(response.data.data);
+        });
+        axios.get(`${process.env.REACT_APP_API_URL}/customer_type`,config).then(function(response) {
+            setCustomerType(response.data.data);
+        });
+        axios.get(`${process.env.REACT_APP_API_URL}/customer_account`,config).then(function(response) {
+            setCustomerAccount(response.data.data);
+        });
     }
 
     useEffect(() => {
@@ -50,22 +55,29 @@ function LoanAdd() {
 
     const handleSubmit = async(e) => {
         e.preventDefault();
-        console.log(inputs)
+        // console.log(inputs)
         
-          
         try{
             let apiurl='';
+            let mtd='';
             if(inputs.id!=''){
-                  apiurl =`/loan/${inputs.id}?_method=put`;
+                mtd='put';
+                apiurl=`/loan/${inputs.id}`;
             }else{
+                mtd='post';
                 apiurl=`/loan`;
             }
             
-            let res = await axios.post(apiurl, inputs)
-            console.log(res);
+            let response= await axios({
+                method: mtd,
+                responsiveTYpe: 'json',
+                url: `${process.env.REACT_APP_API_URL}${apiurl}`,
+                data: inputs,
+                headers: { Authorization: `Bearer ${localStorage.getItem("access_token")}` }
+            });
             navigate('/loan')
-        }
-        catch (e) {
+        } 
+        catch(e){
             console.log(e);
         }
     }
@@ -123,6 +135,19 @@ function LoanAdd() {
                                         </div>
                                     </div>
                                     <div className="form-group row">
+                                        <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Customer Account</label>
+                                        <div className="col-sm-9">
+                                            {customer_account.length > 0 && 
+                                                <select className="form-control" id="customer_account_id" name='customer_account_id' defaultValue={inputs.customer_account_id} onChange={handleChange}>
+                                                    <option value="">Select Account</option>
+                                                    {customer_account.map((d, key) =>
+                                                        <option value={d.id}>{d.account_no}</option>
+                                                    )}
+                                                </select>
+                                            }
+                                        </div>
+                                    </div> 
+                                    <div className="form-group row">
                                         <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Customer Catagory</label>
                                         <div className="col-sm-9">
                                             {customer_type.length > 0 && 
@@ -135,19 +160,7 @@ function LoanAdd() {
                                             }
                                         </div>
                                     </div>
-                                    <div className="form-group row">
-                                        <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Customer Account</label>
-                                        <div className="col-sm-9">
-                                            {customer_account.length > 0 && 
-                                                <select className="form-control" id="customer_account_id" name='customer_account_id' defaultValue={inputs.customer_account_id} onChange={handleChange}>
-                                                    <option value="">Select Service</option>
-                                                    {customer_account.map((d, key) =>
-                                                        <option value={d.id}>{d.account_no}</option>
-                                                    )}
-                                                </select>
-                                            }
-                                        </div>
-                                    </div> 
+                                    
                                     <div className="form-group row">
                                         <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Start Date</label>
                                         <div className="col-sm-9">

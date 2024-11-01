@@ -1,21 +1,27 @@
 import React, { useEffect, useState } from 'react';
-import axios from '../../components/axios';
+import axios from 'axios';
 import AdminLayout from '../../layouts/AdminLayout';
 import { Link } from 'react-router-dom';
 
 function Loan(){
     const[data, setData]=useState([]);
+    const config = {
+        headers: { Authorization: `Bearer ${localStorage.getItem("access_token")}` }
+    };
+
     useEffect(() => {
         getDatas();
     }, []);
 
-    const getDatas = async (e) => {
-        let res = await axios.get(`/loan`)
-        setData(res.data.data);
+    function getDatas (){
+        axios.get(`${process.env.REACT_APP_API_URL}/loan`,config).then(function(response) {
+            setData(response.data.data);
+        });
     }
-    const deleteData = async (id) => {
-        let res = await axios.delete(`/loan/${id}?_method=delete`)
-        getDatas();
+    const deleteData =(id) =>{
+        axios.get(`${process.env.REACT_APP_API_URL}/loan/${id}`,config).then(function(response) {
+            setData(response.data.data);
+        });
     }
 
     return(
