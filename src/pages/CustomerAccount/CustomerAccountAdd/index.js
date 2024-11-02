@@ -17,8 +17,6 @@ function CustomerAccountAdd() {
     const getDatas = async (e)=>{
         let response = await axios.get(`/customer_account/${id}`)
             setInputs(response.data.data);
-           
-       
     }
 
     const getBanks = async (e)=>{
@@ -26,7 +24,6 @@ function CustomerAccountAdd() {
         setCustomer(response.data.data);
         let res = await axios.get(`/account_type`)
         setAccount(res.data.data);
-       
     }
     
 
@@ -45,9 +42,6 @@ function CustomerAccountAdd() {
 
     const handleSubmit = async(e) => {
         e.preventDefault();
-        console.log(inputs)
-        
-          
         try{
             let apiurl='';
             if(inputs.id!=''){
@@ -95,7 +89,7 @@ function CustomerAccountAdd() {
                                         <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Customer Name</label>
                                         <div className="col-sm-9">
                                             {customer.length > 0 && 
-                                                <select className="form-control" id="customer_id" name='customer_id' defaultValue={inputs.customer_id} onChange={handleChange}>
+                                                <select className="form-control" id="customer_id" name='customer_id' defaultValue={inputs.customer_id} onChange={e => { handleChange(e)}}>
                                                     <option value="">Select Customer</option>
                                                     {customer.map((d, key) =>
                                                         <option value={d.id}>{d.name}</option>
@@ -108,7 +102,7 @@ function CustomerAccountAdd() {
                                         <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Account Type</label>
                                         <div className="col-sm-9">
                                             {account_type.length > 0 && 
-                                                <select className="form-control" id="account_type_id" name='account_type_id' defaultValue={inputs.account_type_id} onChange={handleChange}>
+                                                <select className="form-control" id="account_type_id" name='account_type_id' defaultValue={inputs.account_type_id} onChange={e => { handleChange(e)}}>
                                                     <option value="">Select Account Type</option>
                                                     {account_type.map((d, key) =>
                                                         <option value={d.id}>{d.name}</option>
@@ -120,7 +114,7 @@ function CustomerAccountAdd() {
                                     <div className="form-group row">
                                         <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Account No</label>
                                         <div className="col-sm-9">
-                                            <input type="text" className="form-control" id="account_no" name='account_no' defaultValue={inputs.account_no} onChange={handleChange}/>
+                                            <input type="text" readOnly className="form-control" id="account_no" name='account_no' defaultValue={inputs.account_no} onChange={handleChange}/>
                                         </div>
                                     </div>
                                     <div className="form-group row">
@@ -156,19 +150,30 @@ function CustomerAccountAdd() {
                                     <div className="form-group row">
                                         <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Account Opening Date</label>
                                         <div className="col-sm-9">
-                                            <input type="date" className="form-control" id="account_open_date" name='account_open_date' defaultValue={inputs.account_open_date} onChange={handleChange}/>
+                                            {inputs.id!='' ? 
+                                                <input type="date" readOnly className="form-control" id="account_open_date" name='account_open_date' defaultValue={inputs.account_open_date} onChange={handleChange}/>
+                                                :
+                                                <input type="date" className="form-control" id="account_open_date" name='account_open_date' defaultValue={inputs.account_open_date} onChange={handleChange}/>
+                                            }
                                         </div>
                                     </div>
                                     <div className="form-group row">
                                         <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Account Closing Date</label>
                                         <div className="col-sm-9">
-                                            <input type="date" className="form-control" id="account_close_date" name='account_close_date' defaultValue={inputs.account_close_date} onChange={handleChange}/>
+                                            {inputs.id=='' ? 
+                                                <input type="date" readOnly className="form-control" id="account_close_date" name='account_close_date' defaultValue={inputs.account_close_date} onChange={handleChange}/>
+                                                :
+                                                <input type="date" className="form-control" id="account_close_date" name='account_close_date' defaultValue={inputs.account_close_date} onChange={handleChange}/>
+                                            }
                                         </div>
                                     </div>
                                     <div className="form-group row">
                                         <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Status</label>
                                         <div className="col-sm-9">
-                                            <input type="text" className="form-control" id="status" name='status' defaultValue={inputs.status} onChange={handleChange}/>
+                                            <select className="form-control" id="status" name='status' defaultValue={inputs.status} onChange={handleChange}>
+                                                <option value="1">Active</option>
+                                                <option value="0">Inactive</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>

@@ -51,6 +51,7 @@ function CustomerAccount(){
                                                 <th><strong>#SL</strong></th>
                                                 <th><strong>Customer Name</strong></th>
                                                 <th><strong>Account Type</strong></th>
+                                                <th><strong>Account No</strong></th>
                                                 <th><strong>Initial Amount</strong></th>
                                                 <th><strong>Max Balance</strong></th>
                                                 <th><strong>Max transfer</strong></th>
@@ -68,6 +69,7 @@ function CustomerAccount(){
                                             <td className="text-bold-500">{key+1}</td>
                                             <td>{d.customer?.name}</td>
                                             <td>{d.account_type?.name}</td>
+                                            <td>{d.account_no}</td>
                                             <td>{d.initial_amount}</td>
                                             <td>{d.max_balance}</td>
                                             <td>{d.max_transfer}</td>
@@ -75,9 +77,9 @@ function CustomerAccount(){
                                             <td>{d.yearly_interest}</td>
                                             <td>{d.account_open_date}</td>
                                             <td>{d.account_close_date}</td>
-                                            <td>{d.status}</td>
+                                            <td>{d.status?'Active':'Inactive'}</td>
                                             <td>
-                                                <Link to={`/bank_branch/edit/${d.id}`} className='btn btn-info' >Edit</Link>
+                                                <Link to={`/customer_account/edit/${d.id}`} className='btn btn-info' >Edit</Link>
                                                 <button type='button' onClick={() => deleteData(d.id)} className='btn btn-danger'>Delete</button>
                                             </td>
                                         </tr>

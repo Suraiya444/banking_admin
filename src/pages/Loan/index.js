@@ -60,7 +60,7 @@ function Loan(){
                                                 <th><strong>Customer Account No </strong></th>
                                                 <th><strong>Account Type</strong></th>
                                                 <th><strong>Start Date</strong></th>
-                                                <th><strong>No Of Month</strong></th>
+                                                <th><strong>No Of Year</strong></th>
                                                 <th><strong>Interest Rate</strong></th>
                                                 <th><strong>Principal Amount</strong></th>
                                                 <th><strong>Amount With Interest</strong></th>
@@ -86,6 +86,7 @@ function Loan(){
                                             <td>{d.fine}</td>
                                             <td>{d.total_paid}</td>
                                             <td>
+                                                <Link to={`/loan/show/${d.id}`} className='btn btn-info' >Show</Link>
                                                 <Link to={`/loan/edit/${d.id}`} className='btn btn-info' >Edit</Link>
                                                 <button type='button' onClick={() => deleteData(d.id)} className='btn btn-danger'>Delete</button>
                                             </td>

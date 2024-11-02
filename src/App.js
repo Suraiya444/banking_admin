@@ -30,6 +30,7 @@ import Customer from './pages/Customer';
  import BankBranch from './pages/BankBranch';
 import Loan from './pages/Loan';
 import LoanAdd from './pages/Loan/LoanAdd';
+import LoanView from './pages/Loan/LoanView';
 
  import BankserviceAdd from './pages/BankService/BankServiceAdd';
  import BankService from './pages/BankService';
@@ -276,6 +277,11 @@ function App() {
          <Route path={"/loan/edit/:id"} element={
           <Protected isSignedIn={isSignedIn} >
             <LoanAdd />
+          </Protected>
+        } />
+         <Route path={"/loan/show/:id"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <LoanView />
           </Protected>
         } />
          <Route path={"/loan"} element={
