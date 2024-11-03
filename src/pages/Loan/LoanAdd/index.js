@@ -9,7 +9,7 @@ function LoanAdd() {
     const [inputs, setInputs] = useState({id:'',loan_type_id:'',customer_id:'',customer_type_id:'1',customer_account_id:'',start_date:'',term_length:'',interest_rate:'',principal_amount:'',amount_with_interest:'0',fine:'',total_paid:''});
     const [loan_type, setLoanType] = useState([]);
     const [customer, setCustomer] = useState([]);
-    const [customer_type, setCustomerType] = useState([]);
+     const [customer_type, setCustomerType] = useState([]);
     const [customer_account, setCustomerAccount] = useState([]);
 
     const navigate=useNavigate();
@@ -25,7 +25,7 @@ function LoanAdd() {
     }
 
     function getAccounts(e){
-        axios.get(`${process.env.REACT_APP_API_URL}/customer_account?customer_id=${e.target.value}`,config).then(function(response) {
+        axios.get(`${process.env.REACT_APP_API_URL}//customer_account?customer_id=?customer_id=${e.target.value}`,config).then(function(response) {
             setCustomerAccount(response.data.data);
         });
     }
@@ -131,7 +131,7 @@ function LoanAdd() {
                                         <div className="col-sm-9">
                                             {customer.length > 0 && 
                                                 <select className="form-control" id="customer_id" name='customer_id' defaultValue={inputs.customer_id} onChange={e => { handleChange(e); getAccounts(e)}}>
-                                                    <option value="">Select Service</option>
+                                                    <option value="">Select Customer</option>
                                                     {customer.map((d, key) =>
                                                         <option value={d.id}>{d.name}</option>
                                                     )}

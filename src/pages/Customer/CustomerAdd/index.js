@@ -6,11 +6,9 @@ import {useParams} from "react-router-dom";
 import {Link} from "react-router-dom";
 
 function CustomerAdd() {
-    const [inputs, setInputs] = useState({id:'',bank_id:'',bank_branch_id:'',name:'',father_name:'',mother_name:'',contact_no:'',nid:'',image:'',nid_image:'',nid_image_back:'',email:'',per_address:'',pre_address:'',dob:'',gender:'',ref_id:'',income:'',occupation:'',balance:''});
+    const [inputs, setInputs] = useState({id:'',name:'',father_name:'',mother_name:'',contact_no:'',nid:'',image:'',nid_image:'',nid_image_back:'',email:'',per_address:'',pre_address:'',dob:'',gender:'',ref_id:'',income:'',occupation:'',balance:''});
 
-    const [bank, setBank] = useState([]);
-    const [ bank_branch, setBankBranch] = useState([]);
-
+    
     const [selectedfile, setSelectedFile] = useState([]);//for image 
 
     const navigate=useNavigate();
@@ -22,19 +20,19 @@ function CustomerAdd() {
         setInputs(response.data.data);
     }
 
-    const getBanks = async (e)=>{
-        let response = await axios.get(`/bank`)
-        setBank(response.data.data);
-        let res = await axios.get(`/bank_branch`)
-        setBankBranch(res.data.data);
+    // const getBanks = async (e)=>{
+    //     let response = await axios.get(`/bank`)
+    //     setBank(response.data.data);
+    //     let res = await axios.get(`/bank_branch`)
+    //     setBankBranch(res.data.data);
        
-    }
+    // }
      
     useEffect(() => {
         if(id){
             getDatas();
         }
-        getBanks();
+        // getBanks();
     }, []);
 
     const handleChange = (event) => {

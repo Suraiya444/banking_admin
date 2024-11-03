@@ -52,8 +52,6 @@ function Customer(){
                                         <thead>
                                             <tr>
                                                 <th><strong>#SL</strong></th>
-                                                <th><strong>Bank</strong></th>
-                                                <th><strong>Branch</strong></th>
                                                 <th><strong>Name</strong></th>
                                                 <th><strong>Father's Name</strong></th>
                                                 <th><strong>Mother Name</strong></th>
@@ -78,8 +76,7 @@ function Customer(){
                                         {data && Array.isArray(data) && data.map((d, key) =>
                                         <tr key={d.id}>
                                             <td className="text-bold-500">{key+1}</td>
-                                            <td>{d.bank?.name}</td>
-                                            <td>{d.bank_branch?.name}</td>
+                                            
                                             <td>{d.name}</td>
                                             <td>{d.father_name}</td>
                                             <td>{d.mother_name}</td>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from '../../../components/axios';
+import axios from 'axios';
 import AdminLayout from '../../../layouts/AdminLayout';
 import { useNavigate } from 'react-router-dom';
 import {useParams} from "react-router-dom";
@@ -9,30 +9,46 @@ function LoanPaymentAdd() {
     const [inputs, setInputs] = useState({id:'',customer_id:'',loan_id:'',customer_account_id:'',payment_number:'',balance:'',principal_amount:'',interest_rate:'',payment_term:'',amount:'',expected_date:'',pay_date:'',status:''});
     const [customer, setCustomer] = useState([]);
     const [loan, setLoan] = useState([]);
+    const [loan_type, setLoanType] = useState([]);
     const [customer_account, setAccount] = useState([]);
    
     const navigate=useNavigate();
     const {id} = useParams();
+    const config = {
+        headers: { Authorization: `Bearer ${localStorage.getItem("access_token")}` }
+    };
   
-  
-    const getDatas = async (e)=>{
-        let response = await axios.get(`/loan_payment/${id}`)
+    function getDatas(){
+        axios.get(`${process.env.REACT_APP_API_URL}/loan_payment/${id}`,config).then(function(response) {
             setInputs(response.data.data);
-           
-       
+        });
     }
 
-    const getBanks = async (e)=>{
-        let response = await axios.get(`/customer`)
-        setCustomer(response.data.data);
-        let res = await axios.get(`/loan`)
-        setLoan(res.data.data);
-        let respo = await axios.get(`/customer_account`)
-        setAccount(res.data.data);
-       
+    function getLoanType(e){
+          axios.get(`${process.env.REACT_APP_API_URL}/loan?customer_id=${e.target.value}`,config).then(function(response) {
+              setLoanType(response.data.data);
+          });
+        axios.get(`${process.env.REACT_APP_API_URL}/customer_account?customer_id=${e.target.value}`,config).then(function(response) {
+            setAccount(response.data.data);
+        });
+
+         
     }
     
 
+    function getBanks(){
+
+        axios.get(`${process.env.REACT_APP_API_URL}/customer`,config).then(function(response) {
+            setCustomer(response.data.data);
+        });
+
+        axios.get(`${process.env.REACT_APP_API_URL}/loan`,config).then(function(response) {
+            setLoan(response.data.data);
+        });
+ 
+    }
+
+    
     useEffect(() => {
         if(id){
             getDatas();
@@ -48,25 +64,33 @@ function LoanPaymentAdd() {
 
     const handleSubmit = async(e) => {
         e.preventDefault();
-        console.log(inputs)
+        // console.log(inputs)
         
-          
         try{
             let apiurl='';
+            let mtd='';
             if(inputs.id!=''){
-                  apiurl =`/loan_payment/${inputs.id}?_method=put`;
+                mtd='put';
+                apiurl=`/loan_payment/${inputs.id}`;
             }else{
-                apiurl=`/loan_payment `;
+                mtd='post';
+                apiurl=`/loan_payment`;
             }
             
-            let res = await axios.post(apiurl, inputs)
-            console.log(res);
+            let response= await axios({
+                method: mtd,
+                responsiveTYpe: 'json',
+                url: `${process.env.REACT_APP_API_URL}${apiurl}`,
+                data: inputs,
+                headers: { Authorization: `Bearer ${localStorage.getItem("access_token")}` }
+            });
             navigate('/loan_payment')
-        }
-        catch (e) {
+        } 
+        catch(e){
             console.log(e);
         }
     }
+    
     
   return (
     <AdminLayout>
@@ -78,7 +102,7 @@ function LoanPaymentAdd() {
                         <div className="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol className="breadcrumb">
-                                    <li className="breadcrumb-item"><Link to={'/customer_account'} className='btn btn-primary float-right' >Loan Payment   List</Link></li>
+                                    <li className="breadcrumb-item"><Link to={'/loan_payment'} className='btn btn-primary float-right' >Loan Payment   List</Link></li>
                                     <li className="breadcrumb-item active" aria-current="page">Loan Payment</li>
                                 </ol>
                             </nav>
@@ -98,23 +122,10 @@ function LoanPaymentAdd() {
                                         <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Customer Name</label>
                                         <div className="col-sm-9">
                                             {customer.length > 0 && 
-                                                <select className="form-control" id="customer_id" name='customer_id' defaultValue={inputs.customer_id} onChange={handleChange}>
+                                                <select className="form-control" id="customer_id" name='customer_id' defaultValue={inputs.customer_id}  onChange={e => { handleChange(e); getLoanType(e)}} >
                                                     <option value="">Select Customer</option>
                                                     {customer.map((d, key) =>
                                                         <option value={d.id}>{d.name}</option>
-                                                    )}
-                                                </select>
-                                            }
-                                        </div>
-                                    </div>
-                                    <div className="form-group row">
-                                        <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Loan Type</label>
-                                        <div className="col-sm-9">
-                                            {loan.length > 0 && 
-                                                <select className="form-control" id="loan_id" name='loan_id' defaultValue={inputs.loan_id} onChange={handleChange}>
-                                                    <option value="">Select loan id</option>
-                                                    {loan.map((d, key) =>
-                                                        <option value={d.id}>{d.id}</option>
                                                     )}
                                                 </select>
                                             }
@@ -133,6 +144,20 @@ function LoanPaymentAdd() {
                                             }
                                         </div>
                                     </div>
+                                    <div className="form-group row">
+                                        <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Loan Type</label>
+                                        <div className="col-sm-9">
+                                            {loan.length > 0 && 
+                                                <select className="form-control" id="loan_id" name='loan_id' defaultValue={inputs.loan_type_id}  onChange={e => { handleChange(e); getLoanType(e)}} >
+                                                    <option value="">Select loan</option>
+                                                    {loan.map((d, key) =>
+                                                        <option value={d.id}>{d.loan_type?.name}</option>
+                                                    )}
+                                                </select>
+                                            }
+                                        </div>
+                                    </div>
+                                   
                                     <div className="form-group row">
                                         <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Payment Number</label>
                                         <div className="col-sm-9">
@@ -178,7 +203,10 @@ function LoanPaymentAdd() {
                                     <div className="form-group row">
                                         <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Status</label>
                                         <div className="col-sm-9">
-                                            <input type="text" className="form-control" id="status" name='status' defaultValue={inputs.status} onChange={handleChange}/>
+                                            <select className="form-control" id="status" name='status' defaultValue={inputs.status} onChange={handleChange}>
+                                                <option value="1">Active</option>
+                                                <option value="0">Inactive</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
