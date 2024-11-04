@@ -25,7 +25,7 @@ function LoanAdd() {
     }
 
     function getAccounts(e){
-        axios.get(`${process.env.REACT_APP_API_URL}//customer_account?customer_id=?customer_id=${e.target.value}`,config).then(function(response) {
+        axios.get(`${process.env.REACT_APP_API_URL}/customer_account?customer_id=${e.target.value}`,config).then(function(response) {
             setCustomerAccount(response.data.data);
         });
     }

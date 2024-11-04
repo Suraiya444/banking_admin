@@ -83,7 +83,10 @@ function Account_typeAdd() {
                                     <div className="form-group row">
                                         <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Loanable Account</label>
                                         <div className="col-sm-9">
-                                            <input type="text" placeholder="Yes or No" className="form-control" id="loanable" name='loanable' defaultValue={inputs.loanable} onChange={handleChange}/>
+                                            <select className="form-control" id="loanable" name='loanable' defaultValue={inputs.loanable} onChange={handleChange}>
+                                                <option value="1">Yes</option>
+                                                <option value="0">No</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div className="form-group row">
