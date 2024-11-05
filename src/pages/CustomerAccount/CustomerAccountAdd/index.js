@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from '../../../components/axios';
+import axios from 'axios';
 import AdminLayout from '../../../layouts/AdminLayout';
 import { useNavigate } from 'react-router-dom';
 import {useParams} from "react-router-dom";
@@ -23,22 +23,10 @@ function CustomerAccountAdd() {
         });
     }
 
-    function getAccounts(e) {
-        const accountTypeId = e.target.value;  
-    
-        if (!accountTypeId) {
-            console.warn("Account Type ID is required to fetch accounts.");
-            return;  
-        }
-    
-        axios.get(`${process.env.REACT_APP_API_URL}/account_type?account_type_id=${accountTypeId}`, config)
-            .then(function(response) {
-                setAccount(response.data.data);
-            })
-            .catch(function(error) {
-                console.error("Error fetching account type data:", error);
-                
-            });
+    function getAccounts(e){
+        axios.get(`${process.env.REACT_APP_API_URL}/account_type?account_type_id=${e.target.value}`,config).then(function(response) {
+            setAccount(response.data.data);
+        });
     }
 
 

@@ -177,7 +177,7 @@ function LoanAdd() {
                                     <div className="form-group row">
                                         <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Principal Amount</label>
                                         <div className="col-sm-9">
-                                            <input type="text" className="form-control" id="principal_amount" name='principal_amount' defaultValue={inputs.principal_amount} onChange={e => { handleChange(e);}}/>
+                                            <input type="text" className="form-control" id="principal_amount" name='principal_amount' defaultValue={inputs.principal_amount} onChange={e => { handleChange(e)}}/>
                                         </div> 
                                     </div>
 
