@@ -56,6 +56,8 @@ import LoanView from './pages/Loan/LoanView';
  import PaymentType from './pages/PaymentType';
  import PaymentTypeAdd from './pages/PaymentType/PaymentTypeAdd';
 
+ 
+
  import Login from './pages/Login';
  import Register from './pages/Register';
 import { BrowserRouter, Routes, Route } from "react-router-dom";

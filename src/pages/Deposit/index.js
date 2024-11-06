@@ -1,6 +1,8 @@
 import React from 'react';
 import AdminLayout from '../../layouts/AdminLayout';
 import { Link } from 'react-router-dom';
+// import Modal from 'react-bootstrap/Modal';
+//
  
 function Deposit(){
     return(
@@ -39,9 +41,12 @@ function Deposit(){
                                             <tr>
                                                 <th>Name</th>
                                                 <th>Account No</th>
-                                                <th>Amount</th>
+                                                <th>Account Type</th>
                                                 <th>Date</th>
+                                                <th>Amount</th>
                                                 <th>Balance</th>
+                                                <th>Deposit</th>
+                                                <th>Action</th>
                                                 
                                             </tr>
                                         </thead>
@@ -52,6 +57,9 @@ function Deposit(){
                                                 <td>10000</td>
                                                 <td>10/2/24</td>
                                                 <td>6000</td>
+                                                <td>6000</td>
+                                                <td style={{ color: 'white'}}><a class="btn btn-success btn-bg"><i class="fas fa-money-bill-alt"></i><i class="fas fa-upload"><be/></i> Deposit</a></td>
+                                              
                                                  
                                             </tr>
                                             <tr>
