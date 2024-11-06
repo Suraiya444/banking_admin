@@ -25,7 +25,7 @@ function LoanAdd() {
     }
 
     function getAccounts(e){
-        axios.get(`${process.env.REACT_APP_API_URL}//customer_account?customer_id=?customer_id=${e.target.value}`,config).then(function(response) {
+        axios.get(`${process.env.REACT_APP_API_URL}/customer_account?customer_id=${e.target.value}`,config).then(function(response) {
             setCustomerAccount(response.data.data);
         });
     }
@@ -177,7 +177,7 @@ function LoanAdd() {
                                     <div className="form-group row">
                                         <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Principal Amount</label>
                                         <div className="col-sm-9">
-                                            <input type="text" className="form-control" id="principal_amount" name='principal_amount' defaultValue={inputs.principal_amount} onChange={e => { handleChange(e);}}/>
+                                            <input type="text" className="form-control" id="principal_amount" name='principal_amount' defaultValue={inputs.principal_amount} onChange={e => { handleChange(e)}}/>
                                         </div> 
                                     </div>
 

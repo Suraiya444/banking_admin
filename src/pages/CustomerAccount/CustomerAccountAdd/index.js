@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from '../../../components/axios';
+import axios from 'axios';
 import AdminLayout from '../../../layouts/AdminLayout';
 import { useNavigate } from 'react-router-dom';
 import {useParams} from "react-router-dom";
@@ -12,20 +12,34 @@ function CustomerAccountAdd() {
    
     const navigate=useNavigate();
     const {id} = useParams();
+    const config = {
+        headers: { Authorization: `Bearer ${localStorage.getItem("access_token")}` }
+    };
   
-  
-    const getDatas = async (e)=>{
-        let response = await axios.get(`/customer_account/${id}`)
+
+    function getDatas(){
+        axios.get(`${process.env.REACT_APP_API_URL}/customer_account/${id}`,config).then(function(response) {
             setInputs(response.data.data);
+        });
     }
 
-    const getBanks = async (e)=>{
-        let response = await axios.get(`/customer`)
-        setCustomer(response.data.data);
-        let res = await axios.get(`/account_type`)
-        setAccount(res.data.data);
+    function getAccounts(e){
+        axios.get(`${process.env.REACT_APP_API_URL}/account_type?account_type_id=${e.target.value}`,config).then(function(response) {
+            setAccount(response.data.data);
+        });
     }
-    
+
+
+    function getBanks(){
+
+        axios.get(`${process.env.REACT_APP_API_URL}/customer`,config).then(function(response) {
+            setCustomer(response.data.data);
+        });
+
+        
+    }
+
+
 
     useEffect(() => {
         if(id){
@@ -42,22 +56,82 @@ function CustomerAccountAdd() {
 
     const handleSubmit = async(e) => {
         e.preventDefault();
+        // console.log(inputs)
+        
         try{
             let apiurl='';
+            let mtd='';
             if(inputs.id!=''){
-                  apiurl =`/customer_account/${inputs.id}?_method=put`;
+                mtd='put';
+                apiurl=`/customer_account/${inputs.id}`;
             }else{
-                apiurl=`/customer_account `;
+                mtd='post';
+                apiurl=`/customer_account`;
             }
             
-            let res = await axios.post(apiurl, inputs)
-            console.log(res);
+            let response= await axios({
+                method: mtd,
+                responsiveTYpe: 'json',
+                url: `${process.env.REACT_APP_API_URL}${apiurl}`,
+                data: inputs,
+                headers: { Authorization: `Bearer ${localStorage.getItem("access_token")}` }
+            });
             navigate('/customer_account')
-        }
-        catch (e) {
+        } 
+        catch(e){
             console.log(e);
         }
     }
+    
+
+
+
+
+
+    // const getDatas = async (e)=>{
+    //     let response = await axios.get(`/customer_account/${id}`)
+    //         setInputs(response.data.data);
+    // }
+
+    // const getBanks = async (e)=>{
+    //     let response = await axios.get(`/customer`)
+    //     setCustomer(response.data.data);
+    //     let res = await axios.get(`/account_type`)
+    //     setAccount(res.data.data);
+    // }
+    
+
+    // useEffect(() => {
+    //     if(id){
+    //         getDatas();
+    //     }
+    //     getBanks();
+    // }, []);
+
+    // const handleChange = (event) => {
+    //     const name = event.target.name;
+    //     const value = event.target.value;
+    //     setInputs(values => ({...values, [name]: value}));
+    // }
+
+    // const handleSubmit = async(e) => {
+    //     e.preventDefault();
+    //     try{
+    //         let apiurl='';
+    //         if(inputs.id!=''){
+    //               apiurl =`/customer_account/${inputs.id}?_method=put`;
+    //         }else{
+    //             apiurl=`/customer_account `;
+    //         }
+            
+    //         let res = await axios.post(apiurl, inputs)
+    //         console.log(res);
+    //         navigate('/customer_account')
+    //     }
+    //     catch (e) {
+    //         console.log(e);
+    //     }
+    // }
     
   return (
     <AdminLayout>
@@ -102,7 +176,7 @@ function CustomerAccountAdd() {
                                         <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Account Type</label>
                                         <div className="col-sm-9">
                                             {account_type.length > 0 && 
-                                                <select className="form-control" id="account_type_id" name='account_type_id' defaultValue={inputs.account_type_id} onChange={e => { handleChange(e)}}>
+                                                <select className="form-control" id="account_type_id" name='account_type_id' defaultValue={inputs.account_type_id} onChange={e => { handleChange(e); getAccounts(e)}}>
                                                     <option value="">Select Account Type</option>
                                                     {account_type.map((d, key) =>
                                                         <option value={d.id}>{d.name}</option>
