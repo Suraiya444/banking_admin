@@ -62,7 +62,7 @@ function CustomerService(){
                                             <td className="text-bold-500">{key+1}</td>
                                             <td>{d.customer?.name}</td>
                                             <td>{d.bank_service?.name}</td>
-                                            <td>{d.status}</td>
+                                            <td>{d.status?'Active':'Inactive'}</td>
                                             <td>{d.active_date}</td>
                                             <td>
                                                 <Link to={`/customer_service/edit/${d.id}`} className='btn btn-info' >Edit</Link>

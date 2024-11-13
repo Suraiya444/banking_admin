@@ -18,7 +18,7 @@ function Deposit(){
         setInputs(data);
         handleShow();
     }
-
+                                                                                                                                               
     const config = {
         headers: { Authorization: `Bearer ${localStorage.getItem("access_token")}` }
     };

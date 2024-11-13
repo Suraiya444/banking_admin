@@ -118,8 +118,11 @@ function CustomerserviceAdd() {
                                     <div className="form-group row">
                                         <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Status</label>
                                         <div className="col-sm-9">
-                                            <input type="text" className="form-control" id="status" name='status' defaultValue={inputs.status} onChange={handleChange}/>
-                                        </div> 
+                                            <select className="form-control" id="status" name='status' defaultValue={inputs.status} onChange={handleChange}>
+                                                <option value="1">Active</option>
+                                                <option value="0">Inactive</option>
+                                            </select>
+                                        </div>
                                     </div>
                                     <div className="form-group row">
                                         <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Active Date</label>
