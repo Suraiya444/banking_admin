@@ -10,9 +10,10 @@ function Deposit(){
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
     const [errors, setErrors] = useState([]);
+
     const [inputs, setInputs] = useState({id:'', customer_id:'', customer_account_id:'', trans_date:'', amount:'',trans_type:'', description:'',});
+    
     const [customer_account, setCustomerAccount] = useState([]);
     function getTask(data){
         setInputs(data);
@@ -93,7 +94,7 @@ function Deposit(){
                             <nav aria-label="breadcrumb">
                                 <ol className="breadcrumb">
                                 <button type='button' onClick={handleShow} className='btn btn-success'>Add Deposit</button>
-                                    <li className="breadcrumb-item active" aria-current="page">Deposite</li>
+                                    {/* <li className="breadcrumb-item active" aria-current="page">Deposite</li> */}
                                 </ol>
                             </nav>
                         </div>

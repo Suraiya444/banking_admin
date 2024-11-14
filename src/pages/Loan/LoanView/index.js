@@ -18,7 +18,9 @@ function LoanView(){
     function getDatas (){
         axios.get(`${process.env.REACT_APP_API_URL}/loan/${id}`,config).then(function(response) {
             setData(response.data.data);
+            console.log(response.data)
         });
+       
     }
     
 
@@ -65,9 +67,13 @@ function LoanView(){
                                             </tr>
                                             <tr>
                                                 <th><strong>Start Date</strong></th>
+                                                <th>{data.start_date}</th>
+                                                
                                             </tr>
                                             <tr>
                                                 <th><strong>No Of Year</strong></th>
+                                                <th>{data.term_length}</th>
+                                                 
                                             </tr>
                                             
                                         </table>
@@ -76,15 +82,21 @@ function LoanView(){
                                         <table id="zero_config" className="table table-striped table-bordered">
                                             <tr>
                                                 <th><strong>Interest Rate</strong></th>
+                                                <th>{data.interest_rate}</th>
+                                                
+                                                
                                             </tr>
                                             <tr>
                                                 <th><strong>Principal Amount</strong></th>
+                                                <th>{data.principal_amount}</th>
                                             </tr>
                                             <tr>
                                                 <th><strong>Amount With Interest</strong></th>
+                                                <th>{data.amount_with_interest}</th>
                                             </tr>
                                             <tr>
                                                 <th><strong>Fine</strong></th>
+                                                <th>{data.fine}</th>
                                             </tr>
                                             <tr>
                                                 <th><strong>Total Paid</strong></th>
