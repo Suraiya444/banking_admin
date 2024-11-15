@@ -9,7 +9,6 @@ import Customer from './pages/Customer';
  import CustomerAdd from './pages/Customer/CustomerAdd';
 
  import Deposit from './pages/Deposit';
- import DepositAdd from './pages/Deposit/CustomerAdd';
 
  import Transfer from './pages/Transfer';
  import TransferAdd from './pages/Transfer/TransferAdd';
@@ -28,6 +27,7 @@ import Customer from './pages/Customer';
 
  import BankBranchAdd from './pages/BankBranch/BankBranchAdd';
  import BankBranch from './pages/BankBranch';
+ 
 import Loan from './pages/Loan';
 import LoanAdd from './pages/Loan/LoanAdd';
 import LoanView from './pages/Loan/LoanView';
@@ -50,8 +50,8 @@ import LoanView from './pages/Loan/LoanView';
  import CustomerType from './pages/CustomerType';
  import CustomerTypeAdd from './pages/CustomerType/CustomerTypeAdd';
 
- import LoanPayment from './pages/LoanPayment';
- import LoanPaymentAdd from './pages/LoanPayment/LoanPaymentAdd';
+import LoanPayment from './pages/Loan/LoanPayment';
+//  import LoanPaymentAdd from './pages/LoanPayment/LoanPaymentAdd';
 
  import PaymentType from './pages/PaymentType';
  import PaymentTypeAdd from './pages/PaymentType/PaymentTypeAdd';
@@ -153,16 +153,12 @@ function App() {
             <CustomerAdd />
           </Protected>
         } />
-        <Route path={"/deposit"} element={
+         <Route path={"/deposit"} element={
           <Protected isSignedIn={isSignedIn} >
             <Deposit />
           </Protected>
         } />
-         <Route path={"/deposit/add"} element={
-          <Protected isSignedIn={isSignedIn} >
-            <DepositAdd />
-          </Protected>
-        } />
+       
       <Route path={"/transfer"} element={
           <Protected isSignedIn={isSignedIn} >
             <Transfer />
@@ -308,7 +304,7 @@ function App() {
           </Protected>
         } />
 
-        <Route path={"/loan_payment/add"} element={
+        {/* <Route path={"/loan_payment/add"} element={
           <Protected isSignedIn={isSignedIn} >
             <LoanPaymentAdd />
           </Protected>
@@ -317,8 +313,8 @@ function App() {
           <Protected isSignedIn={isSignedIn} >
             <LoanPaymentAdd />
           </Protected>
-        } />
-         <Route path={"/loan_payment"} element={
+        } /> */}
+         <Route path={"/loan_payment/:id"} element={
           <Protected isSignedIn={isSignedIn} >
             <LoanPayment />
           </Protected>

@@ -88,6 +88,7 @@ function Loan(){
                                             <td>
                                                 <Link to={`/loan/show/${d.id}`} className='btn btn-info' >Show</Link>
                                                 <Link to={`/loan/edit/${d.id}`} className='btn btn-info' >Edit</Link>
+                                                <Link to={`/loan_payment/${d.id}`} className='btn btn-success'>Payment</Link>
                                                 <button type='button' onClick={() => deleteData(d.id)} className='btn btn-danger'>Delete</button>
                                             </td>
                                         </tr>

@@ -11,11 +11,10 @@ function Deposit(){
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const [errors, setErrors] = useState([]);
-
     const [inputs, setInputs] = useState({id:'', customer_id:'', customer_account_id:'', trans_date:'', amount:'',trans_type:'', description:'',});
+     const [customer_account, setCustomerAccount] = useState([]);
     
-    const [customer_account, setCustomerAccount] = useState([]);
-    function getTask(data){
+     function getTask(data){
         setInputs(data);
         handleShow();
     }
@@ -120,7 +119,6 @@ function Deposit(){
                                                 <th>Account No</th>
                                                 <th>Date</th>
                                                 <th>Amount</th>
-                                                <th>Balance</th>
                                                 <th>Deposit</th>
                                                 <th>Action</th>
                                                 
@@ -158,7 +156,7 @@ function Deposit(){
                  
             </div>
 
-             <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
+            <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
              <Modal.Header closeButton>
             <Modal.Title>Deposit </Modal.Title>
            </Modal.Header>
@@ -167,92 +165,38 @@ function Deposit(){
            <div className="row md-6">
                     <div className="mb-6 col-md-6">
                         <label htmlFor="projectId" className="form-label">Customer Name<sup className=" text-danger">*</sup></label>
-                        
-                            <input
-                            readOnly
-                            placeholder="customer name"
-                            type="text"
-                            className={`form-control ${errors.customer_id ? 'is-invalid' : ''}`}
-                            id="customer_id"
-                            name="customer_id"
-                            defaultValue={inputs.customer_id}
-                            onChange={handleChange}
-                            // {projectfile.map((d, key)=>
-
-                            // defaultValue={d.id}>{d.id}
-                            
-                            // )}
-                            />
-                        
-                        {errors.customer_id && <div className="invalid-feedback">{errors.customer_id}</div>}
+                           <input placeholder="customer name" type="text"  className={`form-control ${errors.customer_id ? 'is-invalid' : ''}`}  id="customer_id"name="customer_id"defaultValue={inputs.customer_id}   onChange={handleChange}/>
+                            {errors.customer_id && <div className="invalid-feedback">{errors.customer_id}</div>}
                     </div>
                     <div className="mb-6 col-md-6">
-                        <label htmlFor="customerId" className="form-label">Customrt Account Id<sup className=" text-danger">*</sup></label>
-                        <input
-                              readOnly
-                            placeholder="Account"
-                            type="text"
-                            className={`form-control ${errors.customer_account_id ? 'is-invalid' : ''}`}
-                            id="customer_account_id"
-                            name="customer_account_id"
-                            defaultValue={inputs.customer_account_id}
-                            onChange={handleChange}
-                        />
+                        <label htmlFor="customer_account_id" className="form-label">Customrt Account Id<sup className=" text-danger">*</sup></label>
+                        <input placeholder="Account" type="text" className={`form-control ${errors.customer_account_id ? 'is-invalid' : ''}`}id="customer_account_id"name="customer_account_id"defaultValue={inputs.customer_account_id} onChange={handleChange}/>
                         {errors.customer_account_id && <div className="invalid-feedback">{errors.customer_account_id}</div>}
                     </div>
                     <div className="mb-6 col-md-6">
                         <label htmlFor="note">Date<sup className=" text-danger">*</sup></label>
-                        <input
-                             
-                             
-                            type="date"
-                            className={`form-control ${errors.trans_date ? 'is-invalid' : ''}`}
-                            id="trans_date"
-                            name="trans_date"
-                            defaultValue={inputs.trans_date}
-                            onChange={handleChange}
-                        />
+                        <input type="date" className={`form-control ${errors.trans_date ? 'is-invalid' : ''}`} id="trans_date" name="trans_date"defaultValue={inputs.trans_date}onChange={handleChange}/>
                         {errors.trans_date && <div className="invalid-feedback">{errors.trans_date}</div>}
                     </div>
                     
                     <div className="mb-6 col-md-6">
                         <label htmlFor="task">Amount<sup className=" text-danger">*</sup></label>
-                        <input 
-                            type="text"
-                            className={`form-control ${errors.amount ? 'is-invalid' : ''}`}
-                            id="amount"
-                            name="amount"
-                            defaultValue={inputs.amount}
-                            onChange={handleChange}
-                        />
+                        <input type="text"className={`form-control ${errors.amount ? 'is-invalid' : ''}`}id="amount"name="amount"defaultValue={inputs.amount}onChange={handleChange}/>
                         {errors.amount && <div className="invalid-feedback">{errors.amount}</div>}
                     </div> 
 
                     <div className="mb-3 col-md-6">
                         <label htmlFor="attachment" className="form-label">Transaction<sup className=" text-danger">*</sup></label>
-                        <input
-                            
-                            placeholder="Deposit"
-                            type="text"
-                            className={`form-control ${errors.trans_type ? 'is-invalid' : ''}`}
-                            id="trans_type"
-                            name="trans_type"
-                            defaultValue={inputs.trans_type}
-                            onChange={handleChange}
-                        />
+                        <input placeholder="Deposit" type="text" className={`form-control ${errors.trans_type ? 'is-invalid' : ''}`} id="trans_type" name="trans_type" defaultValue={inputs.trans_type} onChange={handleChange}/>
                         {errors.trans_type && <div className="invalid-feedback">{errors.trans_type}</div>}
                     </div>
-                    <textarea
-                        name="description"
-                        defaultValue={inputs.description}
-                        onChange={handleChange}
-                        className={`form-control ${errors.description ? 'is-invalid' : ''}`} placeholder='Write Note' required id="description" rows="1"></textarea>
+                    <textarea name="description"defaultValue={inputs.description} onChange={handleChange}className={`form-control ${errors.description ? 'is-invalid' : ''}`} placeholder='Write Note' required id="description" rows="1"></textarea>
                         {errors.description && <div className="invalid-feedback">{errors.description}</div>}
                 </div>
                 <button type="submit" className="btn btn-primary mt-3">Deposit</button>
                 </form>
            </Modal.Body>
-            </Modal>                       
+            </Modal>                     
            
         </div>
         </AdminLayout>
