@@ -45,14 +45,14 @@ function CustomerAccountAdd() {
         try{
             let apiurl='';
             if(inputs.id!=''){
-                  apiurl =`/customer_account/${inputs.id}?_method=put`;
+                  apiurl =`/loan_payment/${inputs.id}?_method=put`;
             }else{
                 apiurl=`/customer_account `;
             }
             
             let res = await axios.post(apiurl, inputs)
             console.log(res);
-            navigate('/customer_account')
+            navigate('/loan_payment')
         }
         catch (e) {
             console.log(e);

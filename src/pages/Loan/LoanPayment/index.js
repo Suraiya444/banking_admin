@@ -1,13 +1,49 @@
 import React, { useEffect, useState } from 'react';
 import axios from '../../../components/axios';
-// import axios from '../../components/axios';
-// import AdminLayout from '../../../layouts/AdminLayout';
 import AdminLayout from '../../../layouts/AdminLayout';
 import { Link } from 'react-router-dom';
 import {useParams} from "react-router-dom";
+import Modal from 'react-bootstrap/Modal';
+
 
 function LoanPayment(){
-    const[data, setData]=useState([]);
+
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+    const [errors, setErrors] = useState([]);
+    const [inputs, setInputs] = useState({id:'', pay_date:'', amount:''});
+   
+
+    function getTask(data){
+        setInputs(data);
+        handleShow();
+    }
+    const handleChange = (event) => {
+        const name = event.target.name;
+        const value = event.target.value;
+        setInputs(values => ({...values, [name]: value}));
+    }
+    const handleSubmit = async(e) => {
+        e.preventDefault();
+        try{
+            let apiurl='';
+            if(inputs.id!=''){
+                  apiurl =`/customer_account/${inputs.id}?_method=put`;
+            }else{
+                apiurl=`/customer_account `;
+            }
+            
+            let res = await axios.post(apiurl, inputs)
+            console.log(res);
+            navigate('/customer_account')
+        }
+        catch (e) {
+            console.log(e);
+        }
+    }
+
     const {id} = useParams();
     const config = {
         headers: { Authorization: `Bearer ${localStorage.getItem("access_token")}` }
@@ -22,8 +58,24 @@ function LoanPayment(){
             setData(response.data.data);
             console.log(response.data)
         });
+        
        
     }
+    // const {projectId} = useParams();
+
+    // const[data, setData]=useState([]);
+    // useEffect(() => {
+    //     if(projectId){
+    //         setInputs(values => ({...values, ['payment_no']: payment_no}));
+    //     }
+    //     getDatas();
+    // }, []);
+  
+    // function getDatas() {
+    //     axios.get(`${process.env.REACT_APP_API_URL}/loan_payment?payment_no=${projectId}`).then(function(response) {
+    //         setData(response.data.data);
+    //     });
+    // }
     
 
     return(
@@ -63,6 +115,7 @@ function LoanPayment(){
                                                 <th><strong>Interest</strong></th>
                                                 <th><strong>Due Date</strong></th>
                                                 <th><strong>Pay Date</strong></th>
+                                                <th><strong>Amount</strong></th>
                                                 <th><strong>Action</strong></th>
                                             </tr>
                                         </thead>
@@ -72,11 +125,13 @@ function LoanPayment(){
                                             <td>{d.payment_no}</td>  
                                             <td>{d.loan_balance}</td>
                                             <td>{d.payment}</td>
-                                            <td>{d.pricipal}</td>
-                                            
+                                            <td>{d.pricipal}</td>                                         
                                             <td>{d.interest}</td>
                                             <td>{d.pay_date}</td>
+                                            <td>{d.expected_date}</td>
+                                            
                                             <td>{d.actual_date}</td>
+                                            <button type='button'  className='btn btn-danger'>Payment</button>
                                         </tr>
                                     )}
                                         </tbody>
@@ -90,8 +145,28 @@ function LoanPayment(){
                 </div>
                  
             </div>
+            {/* <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
+                <Modal.Header closeButton>
+                  <Modal.Title>Task Progress</Modal.Title>
+                </Modal.Header>
+                    <Modal.Body>
+                        <form onSubmit={handleSubmit}>
+                            <div className="row md-6">
+                                <div className="mb-6 col-md-6">
+                                    <label htmlFor="projectId" className="form-label">Payment Date<sup className=" text-danger">*</sup></label>
+                                    <inpu type="date" className="pay_date" id="pay_date" name="pay_date" defaultValue={inputs.pay_date} onChange={handleChange} />
+                                </div>
+                                <div className="mb-6 col-md-6">
+                                    <label htmlFor="customerId" className="form-label">Amount<sup className=" text-danger">*</sup></label>
+                                    <input placeholder="amount"type="number"className="amount"id="amount" name="amount" defaultValue={inputs.amount} onChange={handleChange}/>
+                                </div>
+                            </div>
+                            <button type="submit" className="btn btn-primary mt-3">Save Task</button>
+                        </form>
+                    </Modal.Body>
+           </Modal> */}
            
-        </div>
+        </div> 
         </AdminLayout>
     )
 }
