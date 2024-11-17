@@ -63,6 +63,7 @@ function LoanPayment(){
                                                 <th><strong>Interest</strong></th>
                                                 <th><strong>Due Date</strong></th>
                                                 <th><strong>Pay Date</strong></th>
+                                                <th><strong>Amount</strong></th>
                                                 <th><strong>Action</strong></th>
                                             </tr>
                                         </thead>
@@ -76,7 +77,9 @@ function LoanPayment(){
                                             
                                             <td>{d.interest}</td>
                                             <td>{d.pay_date}</td>
+                                            <td>{d.amount}</td>
                                             <td>{d.actual_date}</td>
+                                            <button type='button'className='btn btn-danger'>Pay</button>
                                         </tr>
                                     )}
                                         </tbody>

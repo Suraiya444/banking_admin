@@ -11,14 +11,14 @@ function Deposit(){
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const [errors, setErrors] = useState([]);
-    const [inputs, setInputs] = useState({id:'', customer_id:'', customer_account_id:'', trans_date:'', amount:'',trans_type:'', description:'',});
+    const [inputs, setInputs] = useState({id:'',trans_date:'', amount:'',trans_type:'', description:'',});
      const [customer_account, setCustomerAccount] = useState([]);
     
      function getTask(data){
         setInputs(data);
         handleShow();
     }
-                                                                                                                                               
+                                                                                                                     
     const config = {
         headers: { Authorization: `Bearer ${localStorage.getItem("access_token")}` }
     };
