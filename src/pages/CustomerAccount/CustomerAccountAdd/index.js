@@ -25,7 +25,10 @@ function CustomerAccountAdd() {
         let res = await axios.get(`/account_type`)
         setAccount(res.data.data);
     }
-    
+    const getDetails=async(e)=>{
+        let acc=account_type.find(e=>e.id==e.target.value)
+        console.log()
+    }
 
     useEffect(() => {
         if(id){
@@ -45,14 +48,14 @@ function CustomerAccountAdd() {
         try{
             let apiurl='';
             if(inputs.id!=''){
-                  apiurl =`/customer_account/${inputs.id}?_method=put`;
+                  apiurl =`/loan_payment/${inputs.id}?_method=put`;
             }else{
                 apiurl=`/customer_account `;
             }
             
             let res = await axios.post(apiurl, inputs)
             console.log(res);
-            navigate('/customer_account')
+            navigate('/loan_payment')
         }
         catch (e) {
             console.log(e);
@@ -102,7 +105,7 @@ function CustomerAccountAdd() {
                                         <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Account Type</label>
                                         <div className="col-sm-9">
                                             {account_type.length > 0 && 
-                                                <select className="form-control" id="account_type_id" name='account_type_id' defaultValue={inputs.account_type_id} onChange={e => { handleChange(e)}}>
+                                                <select className="form-control" id="account_type_id" name='account_type_id' defaultValue={inputs.account_type_id} onChange={e => { handleChange(e); getDetails(e)}}>
                                                     <option value="">Select Account Type</option>
                                                     {account_type.map((d, key) =>
                                                         <option value={d.id}>{d.name}</option>

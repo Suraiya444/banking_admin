@@ -84,24 +84,24 @@ const isLinkActive = (path)=>{
                           <li className="sidebar-item"><a href="authentication-register.html" className="sidebar-link"><i className="mdi mdi-all-inclusive" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}> Register </span></a></li>
                       </ul>
                   </li>
-                  <li className="sidebar-item"> <a className="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i className="mdi mdi-account-key" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}><Link to="/loan_payment">Loan Payment</Link></span></a>
+                  {/* <li className="sidebar-item"> <a className="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i className="mdi mdi-account-key" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}><Link to="/loan_payment">Loan Payment</Link></span></a>
                       <ul aria-expanded="false" className="collapse  first-level">
                           <li className="sidebar-item"><a href="authentication-login.html" className="sidebar-link"><i className="mdi mdi-all-inclusive" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}> Login </span></a></li>
                           <li className="sidebar-item"><a href="authentication-register.html" className="sidebar-link"><i className="mdi mdi-all-inclusive" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}> Register </span></a></li>
                       </ul>
-                  </li>
+                  </li> */}
                   <li className="sidebar-item"> <a className="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i className="mdi mdi-account-key" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}><Link to="/deposit">Deposit</Link></span></a>
                       <ul aria-expanded="false" className="collapse  first-level">
                           <li className="sidebar-item"><a href="authentication-login.html" className="sidebar-link"><i className="mdi mdi-all-inclusive" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}> Login </span></a></li>
                           <li className="sidebar-item"><a href="authentication-register.html" className="sidebar-link"><i className="mdi mdi-all-inclusive" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}> Register </span></a></li>
                       </ul>
                   </li>
-                  <li className="sidebar-item"> <a className="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i className="mdi mdi-account-key" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}><Link to="/withdraw">Withdraw</Link></span></a>
+                  {/* <li className="sidebar-item"> <a className="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i className="mdi mdi-account-key" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}><Link to="/withdraw">Withdraw</Link></span></a>
                       <ul aria-expanded="false" className="collapse  first-level">
                           <li className="sidebar-item"><a href="authentication-login.html" className="sidebar-link"><i className="mdi mdi-all-inclusive" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}> Login </span></a></li>
                           <li className="sidebar-item"><a href="authentication-register.html" className="sidebar-link"><i className="mdi mdi-all-inclusive" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}> Register </span></a></li>
                       </ul>
-                  </li>
+                  </li> */}
                   
                   <li className="sidebar-item"> <a className="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i className="mdi mdi-account-key" style={{color: 'black'}}></i><span className="hide-menu" style={{color: 'black'}}><Link to="/transfer">Transafer</Link></span></a>
                       <ul aria-expanded="false" className="collapse  first-level">

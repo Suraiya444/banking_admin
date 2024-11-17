@@ -20,6 +20,10 @@ function LoanView(){
             setData(response.data.data);
             console.log(response.data)
         });
+        axios.get(`${process.env.REACT_APP_API_URL}/loan_payme/${id}`,config).then(function(response) {
+            setData(response.data.data);
+            console.log(response.data)
+        });
        
     }
     
