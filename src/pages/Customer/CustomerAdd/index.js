@@ -6,7 +6,7 @@ import {useParams} from "react-router-dom";
 import {Link} from "react-router-dom";
 
 function CustomerAdd() {
-    const [inputs, setInputs] = useState({id:'',name:'',father_name:'',mother_name:'',contact_no:'',nid:'',image:'',nid_image:'',nid_image_back:'',email:'',per_address:'',pre_address:'',dob:'',gender:'',ref_id:'',income:'',occupation:'',balance:''});
+    const [inputs, setInputs] = useState({id:'',name:'',father_name:'',mother_name:'',contact_no:'',nid:'',image:'',nid_image:'',nid_image_back:'',email:'',per_address:'',pre_address:'',dob:'',gender:'',ref_id:'',income:'',occupation:'',balance:'',password:''});
 
     
     const [selectedfile, setSelectedFile] = useState([]);//for image 
@@ -16,8 +16,9 @@ function CustomerAdd() {
 
      
     const getDatas = async (e) => {
-        let response = await axios.get(`/customer/${id}`);
-        setInputs(response.data.data);
+        axios.get(`${process.env.REACT_APP_API_URL}/customer/${id}`)
+            .then(response => setInputs(response.data.data))
+            .catch(error => console.error("Error fetching data:", error));
     }
 
     // const getBanks = async (e)=>{
@@ -60,22 +61,22 @@ function CustomerAdd() {
             formData.append(property, inputs[property])
         }
           
-        try{
-            let apiurl='';
-            if(inputs.id!=''){
-                  apiurl =`/customer/${inputs.id}?_method=put`;
-            }else{
-                apiurl=`/customer `;
-            }
+        try {
+            let apiurl = inputs.id ? `/customer/${inputs.id}` : `/customer/create`;
             
-            let res = await axios.post(apiurl, inputs)
-            console.log(res);
-            navigate('/customer')
+            const response = await axios({
+                method: 'post',
+                url: `${process.env.REACT_APP_API_URL}${apiurl}`,
+                data: formData,
+                headers: { 'Content-Type': 'multipart/form-data' }
+            });
+
+            console.log(response);
+            navigate('/customer');
+        } catch (e) {
+            console.log("Error during submission:", e);
         }
-        catch (e) {
-            console.log(e);
-        }
-    }
+    };
 
   return (
     
@@ -234,6 +235,12 @@ function CustomerAdd() {
                                         <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Balance</label>
                                         <div className="col-sm-9">
                                             <input type="text" className="form-control" id="balance" name='balance' defaultValue={inputs.balance} onChange={handleChange}/>
+                                        </div>
+                                    </div>
+                                    <div className="form-group row">
+                                        <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Password</label>
+                                        <div className="col-sm-9">
+                                            <input type="text" className="form-control" id="password" name='password' defaultValue={inputs.password} onChange={handleChange}/>
                                         </div>
                                     </div>
                                     {/* <h4 className="card-title">Additional Services</h4>
