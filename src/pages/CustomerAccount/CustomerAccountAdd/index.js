@@ -6,7 +6,7 @@ import {useParams} from "react-router-dom";
 import {Link} from "react-router-dom";
 
 function CustomerAccountAdd() {
-    const [inputs, setInputs] = useState({id:'',customer_id:'',account_type_id:'',account_no:'',initial_amount:'',max_balance:'',max_transfer:'',max_withdrawal:'',yearly_interest:'',account_open_date:'',account_close_date:'',status:''});
+    const [inputs, setInputs] = useState({id:'',customer_id:'',account_type_id:'',account_no:'',account_open_date:'',account_close_date:'',status:''});
     const [customer, setCustomer] = useState([]);
     const [account_type, setAccount] = useState([]);
    
@@ -25,14 +25,15 @@ function CustomerAccountAdd() {
         let res = await axios.get(`/account_type`)
         setAccount(res.data.data);
     }
-    const getDetails=async(e)=>{
-        let acc=account_type.find(e=>e.id==e.target.value)
-        console.log()
-    }
+    // const getDetails=async(e)=>{
+    //     let acc=account_type.find(e=>e.id==e.target.value)
+    //     console.log()
+    // }
 
     useEffect(() => {
         if(id){
             getDatas();
+           
         }
         getBanks();
     }, []);
@@ -45,17 +46,18 @@ function CustomerAccountAdd() {
 
     const handleSubmit = async(e) => {
         e.preventDefault();
+        console.log(inputs)
         try{
             let apiurl='';
             if(inputs.id!=''){
-                  apiurl =`/loan_payment/${inputs.id}?_method=put`;
+                  apiurl =`/customer_account/${inputs.id}?_method=put`;
             }else{
                 apiurl=`/customer_account `;
             }
             
             let res = await axios.post(apiurl, inputs)
             console.log(res);
-            navigate('/loan_payment')
+            navigate('/customer_account')
         }
         catch (e) {
             console.log(e);
@@ -105,7 +107,7 @@ function CustomerAccountAdd() {
                                         <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Account Type</label>
                                         <div className="col-sm-9">
                                             {account_type.length > 0 && 
-                                                <select className="form-control" id="account_type_id" name='account_type_id' defaultValue={inputs.account_type_id} onChange={e => { handleChange(e); getDetails(e)}}>
+                                                <select className="form-control" id="account_type_id" name='account_type_id' defaultValue={inputs.account_type_id} onChange={e => { handleChange(e)}}>
                                                     <option value="">Select Account Type</option>
                                                     {account_type.map((d, key) =>
                                                         <option value={d.id}>{d.name}</option>
@@ -120,7 +122,7 @@ function CustomerAccountAdd() {
                                             <input type="text" readOnly className="form-control" id="account_no" name='account_no' defaultValue={inputs.account_no} onChange={handleChange}/>
                                         </div>
                                     </div>
-                                    <div className="form-group row">
+                                    {/* <div className="form-group row">
                                         <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Initial Amount</label>
                                         <div className="col-sm-9">
                                             <input type="text" className="form-control" id="initial_amount" name='initial_amount' defaultValue={inputs.initial_amount} onChange={handleChange}/>
@@ -149,7 +151,7 @@ function CustomerAccountAdd() {
                                         <div className="col-sm-9">
                                             <input type="text" className="form-control" id="yearly_interest" name='yearly_interest' defaultValue={inputs.yearly_interest} onChange={handleChange}/>
                                         </div>
-                                    </div>
+                                    </div> */}
                                     <div className="form-group row">
                                         <label htmlFor="fname" className="col-sm-3 text-right control-label col-form-label">Account Opening Date</label>
                                         <div className="col-sm-9">

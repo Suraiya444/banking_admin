@@ -12,6 +12,7 @@ function CustomerAccount(){
     const getDatas = async (e) => {
         let res = await axios.get(`/customer_account`)
         setData(res.data.data);
+        
     }
     const deleteData = async (id) => {
         let res = await axios.delete(`/customer_account/${id}?_method=delete`)
@@ -70,11 +71,11 @@ function CustomerAccount(){
                                             <td>{d.customer?.name}</td>
                                             <td>{d.account_type?.name}</td>
                                             <td>{d.account_no}</td>
-                                            <td>{d.initial_amount}</td>
-                                            <td>{d.max_balance}</td>
-                                            <td>{d.max_transfer}</td>
-                                            <td>{d.max_withdrawal}</td>
-                                            <td>{d.yearly_interest}</td>
+                                            <td>{d.account_type?.initial_amount}</td>
+                                            <td>{d.account_type?.max_balance}</td>
+                                            <td>{d.account_type?.max_transfer}</td>
+                                            <td>{d.account_type?.max_withdrawal}</td>
+                                            <td>{d.account_type?.yearly_interest}</td>
                                             <td>{d.account_open_date}</td>
                                             <td>{d.account_close_date}</td>
                                             <td>{d.status?'Active':'Inactive'}</td>
