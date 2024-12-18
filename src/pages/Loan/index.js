@@ -58,7 +58,7 @@ function Loan(){
                                                 <th><strong>Loan Type</strong></th>
                                                 <th><strong>Customer Name</strong></th>
                                                 <th><strong>Customer Account No </strong></th>
-                                                <th><strong>Account Type</strong></th>
+                                                {/* <th><strong>Account Type</strong></th> */}
                                                 <th><strong>Start Date</strong></th>
                                                 <th><strong>No Of Year</strong></th>
                                                 <th><strong>Interest Rate</strong></th>
@@ -76,7 +76,7 @@ function Loan(){
                                             <td>{d.loan_type?.name}</td>  
                                             <td>{d.customer?.name}</td>
                                             <td>{d.customer_account?.account_no}</td>
-                                            <td>{d.customer_type?.name}</td>
+                                            {/* <td>{d.customer_type?.name}</td> */}
                                             
                                             <td>{d.start_date}</td>
                                             <td>{d.term_length}</td>
